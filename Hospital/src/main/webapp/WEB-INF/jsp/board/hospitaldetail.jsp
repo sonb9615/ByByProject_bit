@@ -76,7 +76,7 @@
 				</tr>
 				<tr>
 					<th width="25%">카테고리</th>
-					<td>${ hospital.ctg_no }</td>
+					<td>${ hospital.category }</td>
 				</tr>
 				<tr>
 					<th width="25%">내용</th>

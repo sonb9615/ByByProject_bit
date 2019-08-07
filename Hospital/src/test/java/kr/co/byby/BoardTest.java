@@ -26,7 +26,7 @@ public class BoardTest {
 	public void 게시글등록테스트() throws Exception {
 		HospitalBoardVO board = new HospitalBoardVO();
 		board.setTitle("테스트입니다");
-		board.setCtg_no(1);
+		board.setCategory("두통");
 		board.setContent("내용입니다");
 		board.setMemberid("ansguswls");
 
@@ -48,5 +48,7 @@ public class BoardTest {
 		HospitalBoardVO result = hospitalboardDAO.selectByNo(42);
 		System.out.println(result);
 	}
+	
+	
 	
 }

@@ -63,219 +63,219 @@
 }
 
 #D001 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 120px;
-	left: 150px;
+	top: 23%;
+	left: 26%;
 }
 
 #D002 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 120px;
-	left: 250px;
+	top: 23%;
+	left: 33%;
 }
 
 #D003 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 120px;
-	left: 350px;
+	top: 23%;
+	left: 40%;
 }
 
 #D004 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 120px;
-	left: 450px;
+	top: 23%;
+	left: 47%;
 }
 
 #D005 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 120px;
-	left: 550px;
+	top: 23%;
+	left: 54%;
 }
 
 #D006 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 120px;
-	left: 650px;
+	top: 23%;
+	left: 61%;
 }
 
 #D007 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 120px;
-	left: 750px;
+	top: 23%;
+	left: 68%;
 }
 
 #D008 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 120px;
-	left: 850px;
+	top: 37%;
+	left: 26%;
 }
 
 #D009 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 120px;
-	left: 950px;
+	top: 37%;
+	left: 33%;
 }
 
 #D010 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 250px;
-	left: 150px;
+	top: 37%;
+	left: 40%;
 }
 
 #D011 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 250px;
-	left: 250px;
+	top: 37%;
+	left: 47%;
 }
 
 #D012 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 250px;
-	left: 350px;
+	top: 37%;
+	left: 54%;
 }
 
 #D013 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 250px;
-	left: 450px;
+	top: 37%;
+	left: 61%;
 }
 
 #D014 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 250px;
-	left: 550px;
+	top: 37%;
+	left: 68%;
 }
 
 #D016 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 250px;
-	left: 650px;
+	top: 51%;
+	left: 26%;
 }
 
 #D017 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 250px;
-	left: 750px;
+	top: 51%;
+	left: 33%;
 }
 
 #D018 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 250px;
-	left: 850px;
+	top: 51%;
+	left: 40%;
 }
 
 #D019 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 250px;
-	left: 950px;
+	top: 51%;
+	left: 47%;
 }
 
 #D020 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 380px;
-	left: 150px;
+	top: 51%;
+	left: 54%;
 }
 
 #D022 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 380px;
-	left: 250px;
+	top: 51%;
+	left: 61%;
 }
 
 #D023 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 380px;
-	left: 350px;
+	top: 51%;
+	left: 68%;
 }
 
 #D024 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 380px;
-	left: 450px;
+	top: 65%;
+	left: 26%;
 }
 
 #D026 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 380px;
-	left: 550px;
+	top: 65%;
+	left: 33%;
 }
 
 #D034 {
-	width: 7%;
+	width: 5%;
 	height: auto;
 	border: 1px solid #5A5A5A;
 	position: absolute;
-	top: 380px;
-	left: 650px;
+	top: 65%;
+	left: 40%;
 	display: block;
 }
 
@@ -292,6 +292,20 @@ form {
 	<section>
 	<section> <!-- Carousel
     ================================================== -->
+
+	<form name=search method="post" id="form"
+		action="${ pageContext.request.contextPath }/searchResult.jsp">
+
+		시 : <input type="text" name="Q0" id="Q0"><br> 
+		군 : <input type="text" name="Q1" id="Q1"><br> 
+		동 : <input type="text" name="dong" id="dong"><br>
+		<!-- 진료코드 : <input type="text" name="QD" id="QD"><br> -->
+		<button  id="search" name="QD" class="btn btn-default" aria-label="Left Align">
+		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		검색</button>
+		<br>
+
+	</form>
 
 	<div id="icon" class="QD">
 		<!-- <button id="D001" class="QD">내과</button> -->
@@ -406,17 +420,7 @@ form {
 
 	</div>
 
-	<form name=search method="post" id="form"
-		action="${ pageContext.request.contextPath }/searchResult.jsp">
-
-		시 : <input type="text" name="Q0" id="Q0"><br> 
-		군 : <input type="text" name="Q1" id="Q1"><br> 
-		동 : <input type="text" name="dong" id="dong"><br>
-		<!-- 진료코드 : <input type="text" name="QD" id="QD"><br> -->
-		<button type="submit" id="search" name="QD">검색</button>
-		<br>
-
-	</form>
+	
 
 	<!-- /.carousel --> 
 	

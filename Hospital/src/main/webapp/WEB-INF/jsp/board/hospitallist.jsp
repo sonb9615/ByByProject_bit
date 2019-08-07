@@ -88,21 +88,6 @@ ul {
     padding-inline-start: 40px;
 }
 
-
-.board-tab li:before {
-    content: "";
-    display: block;
-    clear: both;
-    position: absolute;
-    width: 1px;
-    height: 10px;
-    background-color: #cdcdcd;
-    top: 26px;
-    left: 0;
-}
-
-
-
 </style>
 </head>
 <body>
@@ -111,36 +96,37 @@ ul {
 	</header>
 	<section>
 		<div align="center">
-		
 			<br> 
 			<hr>
 			<h2>병원게시판</h2>
 			<hr>
-			<div class="board-tab-outer">
-				<ul class="board-tab  w6-2 tabCategory">
-					<li class="on"><a href="#" data="" title='전체 선택됨'>전체</a></li>
+			
+			   <div class="board-tab-outer">
+            <ul class="board-tab  w6-2 tabCategory">
+               <li class="on"><a href="#" data="" title='전체 선택됨'>전체</a></li>
 
-					<li class=""><a href="#" data="19">내과</a></li>
+               <li class=""><a href="#" data="19">내과</a></li>
 
-					<li class=""><a href="#" data="20">소아청소년과</a></li>
+               <li class=""><a href="#" data="20">소아청소년과</a></li>
 
-					<li class=""><a href="#" data="21">사회봉사</a></li>
+               <li class=""><a href="#" data="21">사회봉사</a></li>
 
-					<li class=""><a href="#" data="22">장학</a></li>
+               <li class=""><a href="#" data="22">장학</a></li>
 
-					<li class=""><a href="#" data="189">학생생활</a></li>
+               <li class=""><a href="#" data="189">학생생활</a></li>
 
-					<li class=""><a href="#" data="23">채용</a></li>
+               <li class=""><a href="#" data="23">채용</a></li>
 
-					<li class=""><a href="#" data="190">글로벌</a></li>
+               <li class=""><a href="#" data="190">글로벌</a></li>
 
-					<li class=""><a href="#" data="28">스마트출결</a></li>
+               <li class=""><a href="#" data="28">스마트출결</a></li>
 
-					<li class=""><a href="#" data="162">진로취업</a></li>
+               <li class=""><a href="#" data="162">진로취업</a></li>
 
-					<li class="final"><a href="#" data="25">외부기관</a></li>
-				</ul>
-			</div>
+               <li class="final"><a href="#" data="25">외부기관</a></li>
+            </ul>
+         </div>
+			
 			<br>
 			<table id="list">
 				<tr>
@@ -160,7 +146,7 @@ ul {
 						${ hospital.title }
 						</a>
 						</td>
-						<td>${ hospital.ctg_no }</td>
+						<td>${ hospital.category }</td>
 						<td>${ hospital.content }</td>
 						<td>${ hospital.viewcnt }</td>
 						<td>${ hospital.wrt_date }</td>
@@ -170,6 +156,25 @@ ul {
 			</table>
 			<br>
 			<button id="writeBtn" >새글등록</button>
+		</div>
+		<div>
+			<ul class="btn-group pagination">
+				<c:if test="${pageMaker.prev }">
+					<li>
+						<a href="hospitalboard?${pageMaker.makeQuery(pageMaker.startPage - 1) }"><i class="fa fa-chevron-left"></i>이전</a>
+					</li>
+				</c:if>
+				<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+					<li>
+						<a href="hospitalboard${pageMaker.makeQuery(idx) }"><i class="fa">${idx }</i></a>
+					</li>
+				</c:forEach>
+				<c:if test="${pageMaker.next && pageMaker.endPage>0 }">
+					<li>
+						<a href="hospitalboard${pageMaker.makeQuery(pageMaker.endPage+1) }"><i class="fa fa-chevron-right"></i>다음</a>
+					</li>
+				</c:if>
+			</ul>
 		</div>
 	</section>
 	<footer>

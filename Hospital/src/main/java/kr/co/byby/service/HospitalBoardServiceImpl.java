@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.byby.dao.HospitalBoardDAO;
 import kr.co.byby.dto.HospitalBoardVO;
+import kr.co.byby.dto.HospitalCriteria;
 
 @Service
 public class HospitalBoardServiceImpl implements HospitalBoardService{
@@ -38,4 +39,17 @@ public class HospitalBoardServiceImpl implements HospitalBoardService{
 		hospitalboardDAO.update(board);
 	}
 
+	@Override
+	public List<HospitalBoardVO> listPage(HospitalCriteria cri) throws Exception {
+		List<HospitalBoardVO> listPage = hospitalboardDAO.listPage(cri);
+		return listPage;
+	}
+
+	@Override
+	public int listCount() throws Exception {
+		return hospitalboardDAO.listCount();
+	}
+
+	
+	
 }
