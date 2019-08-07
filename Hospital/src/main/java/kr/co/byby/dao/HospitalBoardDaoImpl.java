@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.byby.dto.HospitalBoardVO;
+import kr.co.byby.dto.HospitalCriteria;
 
 @Repository
 public class HospitalBoardDaoImpl implements HospitalBoardDAO{
@@ -40,4 +41,19 @@ public class HospitalBoardDaoImpl implements HospitalBoardDAO{
 		
 	}
 
+	@Override
+	public List<HospitalBoardVO> listPage(HospitalCriteria cri) throws Exception {
+		List<HospitalBoardVO> hospitalboardListPage = session.selectList("kr.co.byby.dao.HospitalBoardDAO.listPage", cri);
+		return hospitalboardListPage;
+	}
+
+	@Override
+	public int listCount() throws Exception {
+		return session.selectOne("kr.co.byby.dao.HospitalBoardDAO.listCount");
+	}
+
+	
+	
+	
+	
 }

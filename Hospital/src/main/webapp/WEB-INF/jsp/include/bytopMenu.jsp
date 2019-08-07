@@ -31,7 +31,7 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="hello.jsp">병원검색</a></li>
+						<li><a href="search.jsp">병원검색</a></li>
 						<li><a href="${pageContext.request.contextPath}/hospitalboard">병원게시판</a></li>
 						<li><a href="#contact">증상게시판</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"

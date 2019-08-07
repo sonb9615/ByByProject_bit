@@ -25,15 +25,16 @@ public class Search {
 	public static String requestHospitalInfo(String Q0, String Q1, String QD, int i, int j) {
 
 		try {
-			URI requestURI = new URI(hospitalURL + "?serviceKey=" + serviceKey + "&Q0=" + URLEncoder.encode(Q0, "UTF-8") + "&Q1=" + URLEncoder.encode(Q1, "UTF-8") + "&QD=" + QD + "&pageNo=1" + "&numOfRows=100");
+			URI requestURI = new URI(hospitalURL + "?serviceKey=" + serviceKey + "&Q0=" + URLEncoder.encode(Q0, "UTF-8") + "&Q1=" + URLEncoder.encode(Q1, "UTF-8") + "&QD=" + QD + "&pageNo=1" + "&numOfRows=50");
 			HospitalResponseVO response = restTemplate.getForObject(requestURI, HospitalResponseVO.class);
 			
 			System.out.println("병원정보입니다..");
 			items = response.getBody().getItems();
 			
-//			for(HospitalItemDTO item : items) {
-//				System.out.println(item.toString());
-//			}
+			System.out.println(items.toString());
+			/*
+			 * for(HospitalItemDTO item : items) { System.out.println(item.toString()); }
+			 */
 		
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,9 +52,9 @@ public class Search {
 		
 		HospitalItemDTO s = items.get(i);
 		String str = s.toString();
-		String[] words = str.split(",");
+		String[] words = str.split("!!");
 		
-//		System.out.println(words[j]);
+		System.out.println(words[j]);
 
 		return words[j];
 	}

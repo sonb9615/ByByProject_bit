@@ -34,6 +34,6 @@ public class HospitalItemDTO {
 	
 	public String toString() {
 //		return "주소: " + dutyAddr +  "\n"+ "병원이름: " + dutyName +"\n"+"전화번호: " + dutyTel1 + "\n";
-		return dutyName +  "," + dutyAddr + "," + dutyTel1;
+		return dutyName +  "!!" + dutyAddr + "!!" + dutyTel1;
 	}
 }

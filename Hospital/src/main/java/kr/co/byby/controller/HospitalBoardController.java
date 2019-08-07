@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.byby.dto.HospitalBoardVO;
+import kr.co.byby.dto.HospitalCriteria;
+import kr.co.byby.dto.HospitalPageMaker;
 import kr.co.byby.service.HospitalBoardService;
 
 @Controller
@@ -23,16 +26,32 @@ public class HospitalBoardController {
 	private HospitalBoardService service;
 
 	//전체병원리스트조회
-	@RequestMapping("/hospitalboard")
-	public ModelAndView list() {
-		List<HospitalBoardVO> hospitalboardList = service.selectAllBoard();
-
-		ModelAndView mav = new ModelAndView("board/hospitallist");
-
+	/*
+	 * @RequestMapping("/hospitalboard") public ModelAndView list() {
+	 * List<HospitalBoardVO> hospitalboardList = service.selectAllBoard();
+	 * 
+	 * ModelAndView mav = new ModelAndView("board/hospitallist");
+	 * 
+	 * mav.addObject("hospitalboardList", hospitalboardList);
+	 * 
+	 * return mav; }
+	 */
+	
+	//병원게시판 게시물 전체조회_페이지
+	@RequestMapping(value = "/hospitalboard", method= RequestMethod.GET) 
+	public ModelAndView list(@ModelAttribute("cri") HospitalCriteria cri, ModelAndView mav) throws Exception {
+		List<HospitalBoardVO> hospitalboardList = service.listPage(cri);
+		mav = new ModelAndView("board/hospitallist");
+		
+		HospitalPageMaker pageMaker = new HospitalPageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.listCount());
 		mav.addObject("hospitalboardList", hospitalboardList);
-
-		return mav;
+		mav.addObject("pageMaker", pageMaker);  
+		return mav; 
 	}
+	
+	
 
 	//병원게시글 등록
 	@RequestMapping(value = "/board/hospitalwrite2", method = RequestMethod.GET)
