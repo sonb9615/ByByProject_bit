@@ -33,4 +33,9 @@ public class HospitalBoardServiceImpl implements HospitalBoardService{
 		hospitalboardDAO.delete(no);
 	}
 
+	@Override
+	public void update(HospitalBoardVO board) {
+		hospitalboardDAO.update(board);
+	}
+
 }

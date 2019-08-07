@@ -27,4 +27,6 @@ public class HospitalBoardRestController {
 		
 		return result;
 	}
+	
+	
 }

@@ -34,4 +34,10 @@ public class HospitalBoardDaoImpl implements HospitalBoardDAO{
 		
 	}
 
+	@Override
+	public void update(HospitalBoardVO board) {
+		session.update("kr.co.byby.dao.HospitalBoardDAO.update", board);
+		
+	}
+
 }

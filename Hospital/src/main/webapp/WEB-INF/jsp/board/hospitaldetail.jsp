@@ -43,6 +43,13 @@
 			});
 			}
 		});
+		
+		$('#updateBtn').click(function() {
+			if(confirm("${hospital.no}게시물을 수정하시겠습니까?")){
+				location.href = "${ pageContext.request.contextPath }/board/update/${hospital.no}"; 
+			}
+			
+		});
 	});
 </script>
 </head>

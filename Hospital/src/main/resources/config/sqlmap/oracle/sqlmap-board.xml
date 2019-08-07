@@ -3,6 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.byby.dao.HospitalBoardDAO">
+
+	<!-- 특정번호 게시글 수정 -->
+	<update id ="update"  parameterType="HospitalBoardVO">
+		update Board_tb
+			set
+				title = #{title},
+				content = #{content}
+				where no = #{no}
+	</update>
 	
 	<!-- 특정번호 게시글 삭제 -->
 	<delete id="deleteByNo" parameterType="int">

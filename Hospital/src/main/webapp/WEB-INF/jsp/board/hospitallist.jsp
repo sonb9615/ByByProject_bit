@@ -49,7 +49,13 @@ function doAction(boardNo) {
 	
 	location.href = "${ pageContext.request.contextPath}/board/" + boardNo;
 }
+
 </script>
+<style type="text/css">
+#showdetail{
+	color: #e9afbc;
+}
+</style>
 </head>
 <body>
 	<header>
@@ -76,7 +82,7 @@ function doAction(boardNo) {
 					<tr>
 						<td>${ hospital.no }</td>
 						<td>
-						<a href="#" onclick="doAction(${ hospital.no })">
+						<a href="#" onclick="doAction(${ hospital.no })" id="showdetail">
 						${ hospital.title }
 						</a>
 						</td>

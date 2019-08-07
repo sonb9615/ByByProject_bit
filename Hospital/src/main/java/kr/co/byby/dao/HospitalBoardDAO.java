@@ -16,4 +16,7 @@ public interface HospitalBoardDAO {
 	
 	//병원게시글 삭제
 	public void delete(int no);
+	
+	//병원게시글 수정
+	public void update(HospitalBoardVO board);
 }
