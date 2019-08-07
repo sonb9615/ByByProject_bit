@@ -51,7 +51,7 @@ public class Search {
 		
 		HospitalItemDTO s = items.get(i);
 		String str = s.toString();
-		String[] words = str.split(",");
+		String[] words = str.split("!!");
 		
 //		System.out.println(words[j]);
 

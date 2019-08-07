@@ -16,22 +16,13 @@
 <link rel="icon" href="../../favicon.ico">
 
 <title>삐용삐용</title>
-
+<link rel="stylesheet" href="${ pageContext.request.contextPath}/resources/css/layout.css">
 <!-- Bootstrap core CSS -->
 <link href="${ pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 <script src="${ pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-<!-- Custom styles for this template -->
 <link href="/resources/css/carousel.css" rel="stylesheet">
 <style>
 table {
@@ -48,14 +39,10 @@ table, th, td {
 </style>
 </head>
 <body>
-	<div>
+	<header>
 		<jsp:include page="/WEB-INF/jsp/include/bytopMenu.jsp" />
-	</div>
-	<!-- Carousel
-    ================================================== -->
-	<!-- 	<div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
-	<!-- 		<div class="carousel-inner" role="listbox"> -->
-	<!-- 			<div class="item active"> -->
+	</header>
+	<section>
 	<div align="center" class=table>
 
 		<c:set value="${ param.Q0 }" var="Q0" />
@@ -63,26 +50,13 @@ table, th, td {
 		<c:set value="${ param.QD }" var="QD" />
 
 
-		<%-- 		<c:forEach var="i" begin="0" end="100" step="1"> --%>
-		<%-- 			${i:requestHospitalInfo(Q0, Q1, QD, i, 0)} --%>
-		<%-- 		</c:forEach> --%>
-
-
-		<%-- 		<c:set var = "name" value = "${value}" /> --%>
-
-		<%-- 		<c:if test = "${fn : contains(value, '포함된문자열')}">내용</c:if> --%>
-
-
-
-
-		<br> <br> <br> <br> <br> <br>
 		<table>
 			<tr>
 				<th>이름</th>
 				<th>주소</th>
 				<th>전화번호</th>
 			</tr>
-			<c:forEach var="i" begin="0" end="50" step="1">
+			<c:forEach var="i" begin="0" end="10" step="1">
 				<tr>
 					<c:set value='${i:requestHospitalInfo(Q0, Q1, QD, i, 1)}'
 						var='addr' />
@@ -101,15 +75,12 @@ table, th, td {
 	<!-- 		</div> -->
 	<!-- 	</div> -->
 	<!-- /.carousel -->
+	
+	</section>
+	<footer>
+		<jsp:include page="/WEB-INF/jsp/include/byfooter.jsp" />
+	</footer>
 
-
-	<!-- FOOTER -->
-	<jsp:include page="/WEB-INF/jsp/include/byfooter.jsp" />
-
-
-	<!-- Bootstrap core JavaScript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script

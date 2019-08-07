@@ -31,7 +31,7 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="hello.jsp">병원검색</a></li>
+						<li><a href="search.jsp">병원검색</a></li>
 						<li><a href="${pageContext.request.contextPath}/hospitalboard">병원게시판</a></li>
 						<li><a href="#contact">증상게시판</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -47,6 +47,23 @@
 								<li><a href="#">Separated link</a></li>
 								<li><a href="#">One more separated link</a></li>
 							</ul></li>
+						<li style="color: #9d9d9d;">
+							<c:if test="${ not empty loginVO }">
+							<!-- sessionScope.loginVO와같음 -->
+							[${ loginVO.memberid }님으로 로그인중]
+							</c:if>
+						</li>
+						<li>
+						<c:choose>
+						<c:when test="${ empty loginVO }">
+							<li style="color: #9d9d9d;"><a href="${ pageContext.request.contextPath }/member/join">회원가입</a></li>
+							<li style="color: #9d9d9d;"><a href="${ pageContext.request.contextPath }/login">로그인 </a></li>
+						</c:when>
+						<c:otherwise>
+							<a href="${ pageContext.request.contextPath }/logout">로그아웃</a>
+						</c:otherwise>
+						</c:choose>
+					</li>
 					</ul>
 				</div>
 			</div>

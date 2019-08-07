@@ -55,6 +55,54 @@ function doAction(boardNo) {
 #showdetail{
 	color: #e9afbc;
 }
+
+.board-tab li {
+    float: none;
+    display: inline-block;
+    position: relative;
+    padding: 16px 0;
+    text-align: center;
+    box-sizing: border-box;
+    width: 8.3759388%;
+    margin: 0 0 0 -4px;
+    color: #000000;
+}
+
+.board-tab li {
+    float: left;
+    position: relative;
+    padding: 20px 1.7%;
+    text-align: center;
+    box-sizing: border-box;
+    color: #000000;
+}
+
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+
+.board-tab li:before {
+    content: "";
+    display: block;
+    clear: both;
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background-color: #cdcdcd;
+    top: 26px;
+    left: 0;
+}
+
+
+
 </style>
 </head>
 <body>
@@ -63,10 +111,36 @@ function doAction(boardNo) {
 	</header>
 	<section>
 		<div align="center">
+		
 			<br> 
 			<hr>
 			<h2>병원게시판</h2>
 			<hr>
+			<div class="board-tab-outer">
+				<ul class="board-tab  w6-2 tabCategory">
+					<li class="on"><a href="#" data="" title='전체 선택됨'>전체</a></li>
+
+					<li class=""><a href="#" data="19">내과</a></li>
+
+					<li class=""><a href="#" data="20">소아청소년과</a></li>
+
+					<li class=""><a href="#" data="21">사회봉사</a></li>
+
+					<li class=""><a href="#" data="22">장학</a></li>
+
+					<li class=""><a href="#" data="189">학생생활</a></li>
+
+					<li class=""><a href="#" data="23">채용</a></li>
+
+					<li class=""><a href="#" data="190">글로벌</a></li>
+
+					<li class=""><a href="#" data="28">스마트출결</a></li>
+
+					<li class=""><a href="#" data="162">진로취업</a></li>
+
+					<li class="final"><a href="#" data="25">외부기관</a></li>
+				</ul>
+			</div>
 			<br>
 			<table id="list">
 				<tr>
