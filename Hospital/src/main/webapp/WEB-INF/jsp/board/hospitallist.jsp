@@ -86,7 +86,7 @@ function doAction(boardNo) {
 						${ hospital.title }
 						</a>
 						</td>
-						<td>${ hospital.category }</td>
+						<td>${ hospital.ctg_no }</td>
 						<td>${ hospital.content }</td>
 						<td>${ hospital.viewcnt }</td>
 						<td>${ hospital.wrt_date }</td>

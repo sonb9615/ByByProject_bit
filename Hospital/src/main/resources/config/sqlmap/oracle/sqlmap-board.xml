@@ -22,7 +22,7 @@
 	<!-- 특정번호 병원게시글 조회 -->
 	<!-- 게시글 번호로 뽑아내서 파라미터타입이 인트임. -->
 	<select id="selectByNo" parameterType="int" resultType="HospitalBoardVO">
-		select no, title, category, content, viewcnt, to_char(wrt_date, 'yyyy-mm-dd') as wrt_date, memberid
+		select no, title, ctg_no, content, viewcnt, to_char(wrt_date, 'yyyy-mm-dd') as wrt_date, memberid
 		from Board_tb		
 		where no = #{no}
 	</select>
@@ -30,7 +30,7 @@
 
 	<!-- 전체게시글 조회 -->
 	<select id="selectAll" resultType="HospitalBoardVO">
-		select no, title, category, content, viewcnt, to_char(wrt_date, 'yyyy-mm-dd') as wrt_date, memberid
+		select no, title, ctg_no, content, viewcnt, to_char(wrt_date, 'yyyy-mm-dd') as wrt_date, memberid
 		from Board_tb
 		order by no desc
 	</select>
@@ -38,8 +38,8 @@
 
 	<!-- 게시글 삽입 -->
 	<insert id="insert" parameterType="HospitalBoardVO">
-		insert into Board_tb(no, title, category, content, memberid)
-		values(board_no.nextval, #{title}, #{category},#{content},#{memberid})
+		insert into Board_tb(no, title, ctg_no, content, memberid)
+		values(board_no.nextval, #{title}, #{ctg_no},#{content},#{memberid})
 	</insert>
 
 

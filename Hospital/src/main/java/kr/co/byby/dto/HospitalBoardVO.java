@@ -10,7 +10,7 @@ public class HospitalBoardVO {
 	@Length(min=2, max=50, message="2글자 이상 50글자 이하로 입력하세요")
 	@NotEmpty(message="필수항목입니다")
 	private String title;
-	private String category;
+	private int ctg_no;
 	
 	@NotEmpty(message="필수항목입니다")
 	private String content;
@@ -24,12 +24,12 @@ public class HospitalBoardVO {
 	}
 
 
-	public HospitalBoardVO(int no, String title, String category, String content, int viewcnt, String wrt_date,
+	public HospitalBoardVO(int no, String title, int ctg_no, String content, int viewcnt, String wrt_date,
 			String memberid) {
 		super();
 		this.no = no;
 		this.title = title;
-		this.category = category;
+		this.ctg_no = ctg_no;
 		this.content = content;
 		this.viewcnt = viewcnt;
 		this.wrt_date = wrt_date;
@@ -57,13 +57,13 @@ public class HospitalBoardVO {
 	}
 
 
-	public String getCategory() {
-		return category;
+	public int getCtg_no() {
+		return ctg_no;
 	}
 
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setCtg_no(int ctg_no) {
+		this.ctg_no = ctg_no;
 	}
 
 
@@ -109,10 +109,9 @@ public class HospitalBoardVO {
 
 	@Override
 	public String toString() {
-		return "HospitalBoardVO [no=" + no + ", title=" + title + ", category=" + category + ", content=" + content
+		return "HospitalBoardVO [no=" + no + ", title=" + title + ", ctg_no=" + ctg_no + ", content=" + content
 				+ ", viewcnt=" + viewcnt + ", wrt_date=" + wrt_date + ", memberid=" + memberid + "]";
 	}
-	
 	
 	
 	

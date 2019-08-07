@@ -81,7 +81,7 @@
 					</tr>
 					<tr>
 						<th width="23%">카테고리</th>
-						<td><input type="text" name="category" size="80"> <%-- ${ loginVo.id } --%>
+						<td><input type="text" name="ctg_no" size="80"> <%-- ${ loginVo.id } --%>
 						</td>
 					</tr>
 					<tr>
