@@ -25,7 +25,9 @@ public class HospitalBoardController {
 	@Autowired
 	private HospitalBoardService service;
 
-	//전체병원리스트조회
+	
+	  //전체병원리스트조회
+	  
 	/*
 	 * @RequestMapping("/hospitalboard") public ModelAndView list() {
 	 * List<HospitalBoardVO> hospitalboardList = service.selectAllBoard();
@@ -36,24 +38,22 @@ public class HospitalBoardController {
 	 * 
 	 * return mav; }
 	 */
-	
-	//병원게시판 게시물 전체조회_페이지
-	@RequestMapping(value = "/hospitalboard", method= RequestMethod.GET) 
+
+	// 병원게시판 게시물 전체조회_페이지
+	@RequestMapping(value = "/hospitalboard", method = RequestMethod.GET)
 	public ModelAndView list(@ModelAttribute("cri") HospitalCriteria cri, ModelAndView mav) throws Exception {
 		List<HospitalBoardVO> hospitalboardList = service.listPage(cri);
 		mav = new ModelAndView("board/hospitallist");
-		
+
 		HospitalPageMaker pageMaker = new HospitalPageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.listCount());
 		mav.addObject("hospitalboardList", hospitalboardList);
-		mav.addObject("pageMaker", pageMaker);  
-		return mav; 
+		mav.addObject("pageMaker", pageMaker);
+		return mav;
 	}
-	
-	
 
-	//병원게시글 등록
+	// 병원게시글 등록
 	@RequestMapping(value = "/board/hospitalwrite2", method = RequestMethod.GET)
 	public String writeForm2() {
 		return "board/hospitalwrite2";
@@ -67,7 +67,7 @@ public class HospitalBoardController {
 		return "redirect:/hospitalboard";
 	}
 
-	//상세 병원게시글 조회
+	// 상세 병원게시글 조회
 	@RequestMapping(value = "/board/hospitaldetail")
 	public ModelAndView detail2(@RequestParam("no") int no) {
 
@@ -82,22 +82,22 @@ public class HospitalBoardController {
 	@RequestMapping(value = "/board/{no}", method = RequestMethod.GET)
 	public ModelAndView detail(@PathVariable("no") int no) {
 		HospitalBoardVO hospital = service.detailBoardByNo(no);
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/hospitaldetail");
 		mav.addObject("hospital", hospital);
 		return mav;
 	}
-	
-	//병원게시글 삭제
+
+	// 병원게시글 삭제
 	@RequestMapping("/board/remove/{no}")
 	public String removeBoard(@PathVariable("no") int no) {
 		System.out.println("삭제할 번호 : " + no);
-		
+
 		return "redirect:/hospitalboard";
 	}
-	
-	//병원게시글 수정
+
+	// 병원게시글 수정
 	@RequestMapping(value = "/board/update/{no}", method = RequestMethod.GET)
 	public ModelAndView updateget(@PathVariable("no") int no) {
 		HospitalBoardVO hospital = service.detailBoardByNo(no);
@@ -106,11 +106,11 @@ public class HospitalBoardController {
 		mav.addObject("hospital", hospital);
 		return mav;
 	}
-	
-	@RequestMapping(value = "/board/update", method = {RequestMethod.POST,RequestMethod.GET})
+
+	@RequestMapping(value = "/board/update", method = { RequestMethod.POST, RequestMethod.GET })
 	public String updatepost(HospitalBoardVO hospital) {
 		service.update(hospital);
 		return "redirect:/hospitalboard";
 	}
-	
+
 }

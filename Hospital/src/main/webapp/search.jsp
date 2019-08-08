@@ -13,7 +13,7 @@
 <link rel="icon" href="../../favicon.ico">
 
 <title>삐용삐용</title>
-
+<link rel="stylesheet" href="${ pageContext.request.contextPath}/resources/css/layout.css">
 <!-- Bootstrap core CSS -->
 <link
 	href="${ pageContext.request.contextPath}/resources/css/bootstrap.min.css"
@@ -286,8 +286,10 @@ form {
 
 </head>
 <body>
-	<header> <jsp:include
-		page="/WEB-INF/jsp/include/bytopMenu.jsp" /> </header>
+	<header>
+		<jsp:include page="/WEB-INF/jsp/include/bytopMenu.jsp" />
+	</header>
+	<section>
 	<section> <!-- Carousel
     ================================================== -->
 
@@ -368,7 +370,7 @@ form {
 		<img
 			src="${pageContext.request.contextPath}/resources/png/icon/kidneys.png"
 			id="D014" class="img-responsive img-circle">
-		<!--산부인과  -->
+		<!--비뇨기과  -->
 		<img
 			src="${pageContext.request.contextPath}/resources/png/icon/gym.png"
 			id="D016" class="img-responsive img-circle">
@@ -420,9 +422,13 @@ form {
 
 	
 
-	<!-- /.carousel --> </section>
-	<footer> <!-- FOOTER --> <jsp:include
-		page="/WEB-INF/jsp/include/byfooter.jsp" /> <!-- Bootstrap core JavaScript
+	<!-- /.carousel --> 
+	
+	</section>
+	<footer>
+		<jsp:include page="/WEB-INF/jsp/include/byfooter.jsp" />
+	</footer>
+		<!-- Bootstrap core JavaScript
     ================================================== --> <!-- Placed at the end of the document so the pages load faster -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

@@ -85,7 +85,7 @@
 					<tr>
 						<th width="23%">카테고리</th>
 						<td><textarea rows="5" cols="80" name="category" 
-								autofocus="autofocus">${ hospital.category }</textarea> <%-- ${ loginVo.id } --%></td>
+								autofocus="autofocus">${ hospital.ctg_no }</textarea> <%-- ${ loginVo.id } --%></td>
 					</tr>
 					<tr>
 						<th width="23%">내용</th>

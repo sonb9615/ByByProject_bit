@@ -133,21 +133,19 @@ ul {
 					<th>게시글번호</th>
 					<th>제목</th>
 					<th>카테고리</th>
-					<th>내용</th>
 					<th>조회수</th>
 					<th>작성일</th>
 					<th>회원ID</th>
 				</tr>
 				<c:forEach items="${ hospitalboardList }" var="hospital">
 					<tr>
-						<td>${ hospital.no }</td>
+						<td>${ hospital.no }</td> 
 						<td>
 						<a href="#" onclick="doAction(${ hospital.no })" id="showdetail">
 						${ hospital.title }
 						</a>
 						</td>
-						<td>${ hospital.category }</td>
-						<td>${ hospital.content }</td>
+						<td>${ hospital.ctg_no }</td>
 						<td>${ hospital.viewcnt }</td>
 						<td>${ hospital.wrt_date }</td>
 						<td>${ hospital.memberid }</td>

@@ -21,20 +21,20 @@ public class BoardTest {
 	@Autowired
 	private SqlSessionTemplate session;
 
-	@Ignore
+	@Ignore 
 	@Test
 	public void 게시글등록테스트() throws Exception {
 		HospitalBoardVO board = new HospitalBoardVO();
 		board.setTitle("테스트입니다");
-		board.setCategory("두통");
+		board.setCtg_no(1);
 		board.setContent("내용입니다");
-		board.setMemberid("ansguswls");
+		board.setMemberid("test1");
 
 		session.insert("kr.co.byby.dao.HospitalBoardDAO.insert", board);
 
 	}
 	
-	@Ignore
+	/* @Ignore */
 	@Test
 	public void 게시글상세테스트() throws Exception{
 		//namespace이름 + id속성
