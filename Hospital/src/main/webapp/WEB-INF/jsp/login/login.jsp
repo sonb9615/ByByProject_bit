@@ -46,7 +46,7 @@
 		if(isNull(form.password, "패스워드를 입력하세요"))
 			return false;
 		
-		/* if(!form.id.value) {	//비어있으면
+		if(!form.id.value) {	//비어있으면
 			alert('아이디는 필수항목입니다');
 			form.id.focus();		//비어있으면 자동으로 제목칸으로 커서의 포커스가 이동
 			return false;
@@ -56,7 +56,7 @@
 			alert('패스워드는 필수항목입니다');
 			form.password.focus();	//비어있으면 자동으로 작성자 칸으로 커서의 포커스가 이동
 			return false;
-		} */
+		} 
 		
 		return true;
 	}

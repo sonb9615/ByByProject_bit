@@ -12,6 +12,20 @@
 			alert("현재 사용중인 브라우저에서는 사용할 수 없습니다\n크롬에서는 ctrl+d를 사용해주세요.")
 		}
 	}
+	
+	
+	function doAction(){
+		<c:if test= "${empty loginVO}">
+			if(confirm("로그인후 사용가능\n 로그인 하시겠습니까?"))
+				location.href="${pageContext.request.contextPath}/login";
+		</c:if>
+		
+		<c:if test="${!empty loginVO}">
+				
+				location.href="${pageContext.request.contextPath}/mypage/${loginVO.memberid}";
+		</c:if>
+		/* href="${pageContext.request.contextPath}/mypage/{loginVO.memberid}" */
+	}
 </script>
 
 <div class="navbar-wrapper">
@@ -34,10 +48,15 @@
 						<li><a href="search.jsp">병원검색</a></li>
 						<li><a href="${pageContext.request.contextPath}/hospitalboard">병원게시판</a></li>
 						<li><a href="#contact">증상게시판</a></li>
-						<li class="dropdown"><a href="myPage.jsp" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-expanded="false">마이페이지
-								<span class="caret"></span>
+						
+						
+						
+						<li class="dropdown"><a onclick="doAction()" href="#"  class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-expanded="false" 
+							id="mypage">마이페이지
+							<span class="caret"></span>
 						</a>
+						
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="#">Action</a></li>
 								<li><a href="#">Another action</a></li>
@@ -46,7 +65,12 @@
 								<li class="dropdown-header">Nav header</li>
 								<li><a href="#">Separated link</a></li>
 								<li><a href="#">One more separated link</a></li>
-							</ul></li>
+							</ul>
+							
+							</li>
+							
+						
+						
 						<li style="color: #9d9d9d;">
 							<c:if test="${ not empty loginVO }">
 							<!-- sessionScope.loginVO와같음 -->

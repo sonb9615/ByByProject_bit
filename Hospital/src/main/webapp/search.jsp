@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,20 +27,39 @@
 <script>
 
    $(document).ready(function(){
+	  
       $('.QD').click(function(evt){
          
          var qd = evt.target.id;
          document.search.QD.value = qd;
+
          $('#log').text(qd);
          
       })
    })
+     
+     function doAction(){
+    		var value = $('.QD').val();
+			
+			console.log(value);
+    			
+    	}
+     
    
 </script>
 
 <!-- Custom styles for this template -->
 
 <style type="text/css">
+
+html,body{
+	height:100%;
+}
+
+#container{
+	min-height:100%;
+}
+
 #icon {
 	padding: 10%;
 }
@@ -280,7 +299,14 @@
 }
 
 form {
-	margin: 20%;
+	position: absolute;
+	top: 13%;
+	left:35%;
+}
+
+#f_col{
+	position: absolute;
+	top:31%;
 }
 </style>
 
@@ -289,19 +315,28 @@ form {
 	<header>
 		<jsp:include page="/WEB-INF/jsp/include/bytopMenu.jsp" />
 	</header>
-	<section>
+	
 	<section> <!-- Carousel
     ================================================== -->
 
-	<form name=search method="post" id="form"
+	<form name=search method="post" id="form" class="form-inline"
 		action="${ pageContext.request.contextPath }/searchResult.jsp">
-
-		시 : <input type="text" name="Q0" id="Q0"><br> 
-		군 : <input type="text" name="Q1" id="Q1"><br> 
-		동 : <input type="text" name="dong" id="dong"><br>
+		<div class="form-group">
+		<label class="sr-only" for="Q0">시</label>
+			<input type="text" name="Q0" id="Q0" placeholder="시를 입력해주세요">
+		</div>
+		<div class="form-group">
+			<label class="sr-only" for="Q1">구</label>
+			<input type="text" name="Q1" id="Q1" placeholder="구/군을 입력해주세요">
+		</div>
+		<div class="form-group">
+			<label class="sr-only" for="dong">동</label>
+			<input type="text" name="dong" id="dong" placeholder="동을 입력해주세요">
+		</div>
+		
 		<!-- 진료코드 : <input type="text" name="QD" id="QD"><br> -->
-		<button  id="search" name="QD" class="btn btn-default" aria-label="Left Align">
-		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		<button  id="search" name="QD" class="btn btn-default" aria-label="Left Align" onclick="doAction()">
+		<span class="glyphicon glyphicon-search" aria-hidden="true" ></span>
 		검색</button>
 		<br>
 
@@ -309,12 +344,12 @@ form {
 
 	<div id="icon" class="QD">
 		<!-- <button id="D001" class="QD">내과</button> -->
-
+		
 		<img
 			src="${pageContext.request.contextPath}/resources/png/icon/stomach.png"
 			id="D001" class="img-responsive img-circle">
 		<!--내과 -->
-
+		
 		<img
 			src="${pageContext.request.contextPath}/resources/png/icon/baby.png"
 			id="D002" class="img-responsive img-circle">
@@ -339,6 +374,10 @@ form {
 			src="${pageContext.request.contextPath}/resources/png/icon/chest.png"
 			id="D007" class="img-responsive img-circle">
 		<!--흉부와과  -->
+		<div id="f_col">
+			<span id="na">내과</span> <span id="so">소아청소년과</span> <span id="sin">신경과</span> 
+			<span>정신건강의학과</span> <span>피부과</span> <span>외과</span> <span>흉부외과</span>
+		</div>
 		<img
 			src="${pageContext.request.contextPath}/resources/png/icon/bone.png"
 			id="D008" class="img-responsive img-circle">
@@ -425,11 +464,24 @@ form {
 	<!-- /.carousel --> 
 	
 	</section>
+	<!-- <br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/> -->
 	<footer>
 		<jsp:include page="/WEB-INF/jsp/include/byfooter.jsp" />
 	</footer>
-		<!-- Bootstrap core JavaScript
-    ================================================== --> <!-- Placed at the end of the document so the pages load faster -->
+	
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script
@@ -437,8 +489,8 @@ form {
 	<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 	<script
 		src="${ pageContext.request.contextPath}/resources/js/holder.js"></script>
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> <script
-		src="../../assets/js/ie10-viewport-bug-workaround.js"></script> </footer>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
+	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> 
 </body>
 
 </html>

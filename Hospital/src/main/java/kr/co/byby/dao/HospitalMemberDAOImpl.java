@@ -20,6 +20,22 @@ public class HospitalMemberDAOImpl implements HospitalMemberDAO{
 		session.insert("kr.co.byby.dao.HospitalMemberDAO.insertMember", member);  //parameterType은 MemberVO가된다
 		
 	}
+	
+
+	@Override
+	public HospitalMemberVO selectById(String memberid) {
+		HospitalMemberVO memberDetail = session.selectOne("kr.co.byby.dao.HospitalMemberDAO.selectById", memberid);
+		return memberDetail;
+	}
 
 
+
+	@Override
+	public void updateMem(HospitalMemberVO member) {
+		session.update("kr.co.byby.dao.HospitalMemberDAO.updateMember", member);
+		
+	}
+
+
+	
 }

@@ -23,4 +23,21 @@ public class HospitalMemberServiceImpl implements HospitalMemberService{
 		
 	}
 
+	
+	@Override
+	public HospitalMemberVO detailBoardById(String memberid) {
+		HospitalMemberVO member = memberDAO.selectById(memberid);
+		return member;
+	}
+
+
+
+	@Override
+	public void updateMember(HospitalMemberVO member) {
+		memberDAO.updateMem(member);
+		
+	}
+
+	
+	
 }

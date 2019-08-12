@@ -100,36 +100,6 @@ table, th, td {
          <br>
       <br>
 
-
-
-      <!--    <div align="center" class=table> -->
-
-      <%--       <c:set value="${ param.Q0 }" var="Q0" /> --%>
-      <%--       <c:set value="${ param.Q1 }" var="Q1" /> --%>
-      <%--       <c:set value="${ param.QD }" var="QD" /> --%>
-
-
-      <!--       <table> -->
-      <!--          <tr> -->
-      <!--             <th>이름</th> -->
-      <!--             <th>주소</th> -->
-      <!--             <th>전화번호</th> -->
-      <!--          </tr> -->
-      <%--          <c:forEach var="i" begin="0" end="10" step="1"> --%>
-      <!--             <tr> -->
-      <%--                <c:set value='${i:requestHospitalInfo(Q0, Q1, QD, i, 1)}' --%>
-      <%--                   var='addr' /> --%>
-      <%--                <c:set value="${ param.dong }" var="dong" /> --%>
-      <%--                <c:if test="${fn : contains(addr, dong)}"> --%>
-      <%--                   <td><c:out value='${i:requestHospitalInfo(Q0, Q1, QD, i, 0)}' /></td> --%>
-      <%--                   <td><c:out value='${i:requestHospitalInfo(Q0, Q1, QD, i, 1)}' /></td> --%>
-      <%--                   <td><c:out value='${i:requestHospitalInfo(Q0, Q1, QD, i, 2)}' /></td> --%>
-      <%--                </c:if> --%>
-      <!--             </tr> -->
-
-      <%--          </c:forEach> --%>
-      <!--       </table> -->
-      <!--    </div> -->
    </section>
    <footer>
       <jsp:include page="/WEB-INF/jsp/include/byfooter.jsp" />
