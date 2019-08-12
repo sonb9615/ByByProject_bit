@@ -3,11 +3,11 @@ package kr.co.byby.dto;
 import javax.validation.constraints.NotEmpty;
 
 public class HospitalMemberVO {
-//	@NotEmpty(message="필수항목입니다.")
+	@NotEmpty(message="필수항목입니다.")
 	private String memberid;
-//	@NotEmpty(message="필수항목입니다.")
+	@NotEmpty(message="필수항목입니다.")
 	private String name;
-//	@NotEmpty(message="필수항목입니다.")
+	@NotEmpty(message="필수항목입니다.")
 	private String password;
 	private String emailId, emailDomain,
 					tel1, tel2, tel3, type, regDate;

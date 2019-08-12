@@ -29,13 +29,32 @@
 <!-- Custom styles for this template -->
 <link href="/resources/css/carousel.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-
+<script>
+	$(document).ready(function() {
+		$('#checkbtn').on('click', function() {
+			$.ajax({
+				type: 'POST',
+				url: '/checkSignUp',
+				data: {
+					"memberid": $('#memberid').val()
+				},
+				success: function(data) {
+					if($.trim(data) == 0) {
+						$('#checkMsg').html('<p style="color:blue">사용가능</p>');
+					}
+					else{
+						$('#checkMsg').html('<p style="color:red">사용불가능</p>');
+					}
+				}
+			});
+		});
+	});
+</script>
 <style>
  .error { 
  	color: red; 
  } 
 </style>
-
 
 </head>
 <body>
@@ -53,21 +72,24 @@
 		<form:form method="post" commandName="memberVO">
 			<table>
 				<tr>
-					<th width="23%">ID</th>
+					<th width="23%">ID *</th>
 					<td>
-						<form:input path="memberid" />
+						<form:input path="memberid" id="memberid"/>
 						<form:errors path="memberid" class="error"/>
+						<div id="checkMsg"></div>
+						
+						<button type="button" id="checkbtn" class="btn btn-default">중복확인</button>
 					</td>
 				</tr>
 				<tr>
-					<th width="23%">이름</th>
+					<th width="23%">이름 *</th>
 					<td>
 						<form:input path="name" />
 						<form:errors path="name" class="error"/>
 					</td>
 				</tr>
 				<tr>
-					<th width="23%">Password</th>
+					<th width="23%">Password *</th>
 					<td>
 						<form:input path="password" />
 						<form:errors path="password" class="error"/>

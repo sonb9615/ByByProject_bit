@@ -23,6 +23,7 @@ public class HospitalMemberServiceImpl implements HospitalMemberService{
 		
 	}
 
+<<<<<<< HEAD
 	
 	@Override
 	public HospitalMemberVO detailBoardById(String memberid) {
@@ -40,4 +41,13 @@ public class HospitalMemberServiceImpl implements HospitalMemberService{
 
 	
 	
+=======
+	@Override
+	public int checkIdSignUp(String memberid) {
+		
+		int check = memberDAO.checkId(memberid);
+		return check;
+	}
+
+>>>>>>> origin/yejin
 }

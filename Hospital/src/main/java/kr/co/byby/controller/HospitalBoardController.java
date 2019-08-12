@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -86,9 +87,25 @@ public class HospitalBoardController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/hospitaldetail");
 		mav.addObject("hospital", hospital);
+		
 		return mav;
 	}
+	
+	
+	// 병원게시판 카테고리 글목록 불러오기
+	@RequestMapping(method = RequestMethod.GET, value = "/category/{ctg_name}")
+	public ModelAndView getCtgBoard(@PathVariable("ctg_name") String ctg_name) {
+		List<HospitalBoardVO> ctgBoardList = service.ctgBoard(ctg_name);
+		ModelAndView mav = new ModelAndView("board/ctgBoardList");
+		mav.addObject("ctgBoard", ctgBoardList);
+		
+		return mav;
+	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> origin/yejin
 	// 병원게시글 삭제
 	@RequestMapping("/board/remove/{no}")
 	public String removeBoard(@PathVariable("no") int no) {

@@ -22,19 +22,33 @@
 	<!-- 특정번호 병원게시글 조회 -->
 	<!-- 게시글 번호로 뽑아내서 파라미터타입이 인트임. -->
 	<select id="selectByNo" parameterType="int" resultType="HospitalBoardVO">
-		select no, title, ctg_no, content, viewcnt, to_char(wrt_date, 'yyyy-mm-dd') as wrt_date, memberid
-		from Board_tb		
-		where no = #{no}
+		select B.no, B.title, B.ctg_no, H.ctg_name, B.content, B.viewcnt, to_char(wrt_date, 'yyyy-mm-dd') as wrt_date, B.memberid
+		 from Board_tb B
+		  left outer join h_Category H
+		   on B.ctg_no = H.ctg_no
+		    where no = #{no}
 	</select>
+	
+	<!-- 카테고리 게시글 조회 -->
+		<select id="selectCtgBoard" parameterType="String" resultType="HospitalBoardVO">
+		select B.no, B.title, B.ctg_no, H.ctg_name, B.content, B.viewcnt, to_char(wrt_date, 'yyyy-mm-dd') as wrt_date, B.memberid
+		 from Board_tb B
+		  left outer join h_Category H
+		   on B.ctg_no = H.ctg_no
+		    where ctg_name = #{ctg_name}
+	</select>
+	
 	
 	<!-- 전체게시글조회(페이징) -->
 	<select id="listPage" parameterType="kr.co.byby.dto.HospitalCriteria" resultType="HospitalBoardVO">
-		select no, title, ctg_no, viewcnt, wrt_date, memberid
-    	from ( select no,title, ctg_no, viewcnt, wrt_date, memberid,
+		select no, title, ctg_no, ctg_name, viewcnt, wrt_date, memberid
+    	from ( select B.no, B.title, B.ctg_no, H.ctg_name, B.viewcnt, wrt_date, B.memberid,
     	row_number() over(order by no desc)as rNum
-    	from board_tb) mb 
-    	where rNum between #{rowStart} and #{rowEnd}
-    	order by no desc
+    	from board_tb B
+    	 left outer join h_Category H
+    	  on B.ctg_no = H.ctg_no) mb
+    	   where rNum between #{rowStart} and #{rowEnd}
+    	    order by no desc
 	</select>
 	
 	<select id="listCount" resultType="int">
@@ -45,19 +59,10 @@
 	]]>
 	</select>
 
-
-	<!-- 전체게시글 조회 -->
-	<select id="selectAll" resultType="HospitalBoardVO">
-		select no, title, ctg_no, content, viewcnt, to_char(wrt_date, 'yyyy-mm-dd') as wrt_date, memberid
-		from Board_tb
-		order by no desc
-	</select>
-
-
 	<!-- 게시글 삽입 -->
 	<insert id="insert" parameterType="HospitalBoardVO">
 		insert into Board_tb(no, title, ctg_no, content, memberid)
-		values(board_no.nextval, #{title}, #{ctg_no},#{content},#{memberid})
+		values(board_no.nextval, #{title}, #{ctg_no}, #{content}, #{memberid})
 	</insert>
 
 

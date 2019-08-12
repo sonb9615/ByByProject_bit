@@ -6,5 +6,6 @@
 	<typeAliases>
 		<typeAlias type="kr.co.byby.dto.HospitalBoardVO" alias="HospitalBoardVO"/>
 		<typeAlias type="kr.co.byby.dto.HospitalMemberVO" alias="HospitalMemberVO"/>
+		<typeAlias type="kr.co.byby.dto.CategoryVO" alias="CategoryVO"/>
 	</typeAliases>
 </configuration>

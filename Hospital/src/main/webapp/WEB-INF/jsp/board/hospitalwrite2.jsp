@@ -30,6 +30,31 @@
 <link href="/resources/css/carousel.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
+
+$(document).ready(function() {
+	var form = document.inputForm;
+	$.ajax({
+		type: 'GET',
+		url: "/categoryData",
+		success: function(result) {
+			console.log(result);
+			var myObj = JSON.parse(result);
+			for (var i = 0; i < myObj.length; i++) {
+				var item = myObj[i];
+				$("#category").append("<option value=" + item.ctg_no + ">" + item.ctg_name + "</option>");
+				
+			}
+			if(form.ctg_no.length > 0) {
+				$("#category").val(form.ctg_no);
+			}
+		},
+		error:function(request, status, error) {
+			alert("ERROR: " + request + " " + status + " " + error);
+		}
+	});
+});
+
+
 	function checkForm() {
 		var form = document.inputForm;
 
@@ -81,7 +106,8 @@
 					</tr>
 					<tr>
 						<th width="23%">카테고리</th>
-						<td><input type="text" name="ctg_no" size="80"> <%-- ${ loginVo.id } --%>
+						
+						<td><select id="category" name="ctg_no"></select>
 						</td>
 					</tr>
 					<tr>

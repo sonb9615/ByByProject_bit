@@ -2,17 +2,23 @@ package kr.co.byby.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+=======
+import org.springframework.web.bind.annotation.ResponseBody;
+>>>>>>> origin/yejin
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.byby.dto.HospitalBoardVO;
@@ -26,6 +32,15 @@ public class HospitalMemberController {
 	@Autowired
 	private HospitalMemberService service;
 	
+	@ResponseBody
+	@RequestMapping(value="/checkSignUp", method=RequestMethod.POST)
+	public String checkSignUp(HttpServletRequest request, Model model) {
+		String id = request.getParameter("memberid");
+		int rowcount = service.checkIdSignUp(id);
+		return String.valueOf(rowcount);
+	}
+	
+	
 	
 	@RequestMapping(value="/member/join", method=RequestMethod.GET)
 	public String joinForm(Model model) {
@@ -38,7 +53,7 @@ public class HospitalMemberController {
 	}
 	
 	@RequestMapping(value="/member/join", method=RequestMethod.POST)
-	public String join(@Valid HospitalMemberVO member, BindingResult result) {
+	public String join(@ModelAttribute("memberVO") @Valid HospitalMemberVO member, BindingResult result) {
 		
 		System.out.println(member);
 		
@@ -52,6 +67,7 @@ public class HospitalMemberController {
 		
 		return "redirect:/";
 	}
+<<<<<<< HEAD
 	
 	@RequestMapping(value = "/mypage/{loginVO.memberid}", method = RequestMethod.GET)
 	public ModelAndView detailMember(@PathVariable("loginVO.memberid") String memberid) {
@@ -80,6 +96,8 @@ public class HospitalMemberController {
 		return "redirect:/";
 	}
 	
+=======
+>>>>>>> origin/yejin
 }
 
 

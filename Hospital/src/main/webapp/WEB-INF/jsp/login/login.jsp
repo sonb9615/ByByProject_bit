@@ -40,15 +40,9 @@
 	function checkForm() {
 		var form = document.inputForm;
 		
-		if(isNull(form.memberid, "아이디를 입력하세요"))
-			return false;
-		
-		if(isNull(form.password, "패스워드를 입력하세요"))
-			return false;
-		
-		if(!form.id.value) {	//비어있으면
+		if(!form.memberid.value) {	//비어있으면
 			alert('아이디는 필수항목입니다');
-			form.id.focus();		//비어있으면 자동으로 제목칸으로 커서의 포커스가 이동
+			form.memberid.focus();		//비어있으면 자동으로 제목칸으로 커서의 포커스가 이동
 			return false;
 		} 
 		
@@ -75,18 +69,20 @@
 				<tr>
 					<th>아이디</th>
 					<td>
-						<input type="text" name="memberid" />
+						<input type="text" name="memberid" autofocus="autofocus"/>
 					</td>
 				</tr>
 				<tr>
 					<th>패스워드</th>
 					<td>
-						<input type="text" name="password" />
+						<input type="password" name="password" autofocus="autofocus"/>
 					</td>
 
 			</table>
 			<br>
 			<button type="submit">로그인</button>
+			<a href="${ pageContext.request.contextPath }/member/join"><button type="button">회원가입</button></a>
+
 		</form>
 		</div>
 		
