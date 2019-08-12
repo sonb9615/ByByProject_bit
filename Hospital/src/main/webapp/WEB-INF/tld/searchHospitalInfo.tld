@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib  xmlns="http://java.sun.com/xml/ns/j2ee"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+                        web-jsptaglibrary_2_0.xsd"
+     version="2.0">
+<!--  jstl로 바꿀경우 사용해보기 -->
+     <description>searchMethod</description>
+     <tlib-version>1.2</tlib-version>
+     <short-name>searchMethod</short-name>
+     <uri>tld/searchHospitalInfo.tld</uri>
+     <function>
+         <description>Search Class</description>
+         <name>requestHospitalInfo</name>
+         <function-class>kr.co.byby.controller.Search</function-class>
+         <function-signature>
+             java.lang.String requestHospitalInfo(java.lang.String, java.lang.String, java.lang.String, int, int)
+         </function-signature>
+    </function>
+
+</taglib>
