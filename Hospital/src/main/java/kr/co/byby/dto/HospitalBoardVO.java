@@ -11,11 +11,7 @@ public class HospitalBoardVO {
 	@NotEmpty(message="필수항목입니다")
 	private String title;
 	private int ctg_no;
-<<<<<<< HEAD
-	
-=======
 	private String ctg_name;
->>>>>>> origin/yejin
 	@NotEmpty(message="필수항목입니다")
 	private String content;
 	private int viewcnt;
@@ -28,21 +24,13 @@ public class HospitalBoardVO {
 	}
 
 
-<<<<<<< HEAD
-	public HospitalBoardVO(int no, String title, int ctg_no, String content, int viewcnt, String wrt_date,
-			String memberid) {
-=======
 	public HospitalBoardVO(int no, String title, int ctg_no, String ctg_name, String content, int viewcnt,
 			String wrt_date, String memberid) {
->>>>>>> origin/yejin
 		super();
 		this.no = no;
 		this.title = title;
 		this.ctg_no = ctg_no;
-<<<<<<< HEAD
-=======
 		this.ctg_name = ctg_name;
->>>>>>> origin/yejin
 		this.content = content;
 		this.viewcnt = viewcnt;
 		this.wrt_date = wrt_date;
@@ -72,13 +60,6 @@ public class HospitalBoardVO {
 
 	public int getCtg_no() {
 		return ctg_no;
-<<<<<<< HEAD
-	}
-
-
-	public void setCtg_no(int ctg_no) {
-		this.ctg_no = ctg_no;
-=======
 	}
 
 
@@ -94,7 +75,6 @@ public class HospitalBoardVO {
 
 	public void setCtg_name(String ctg_name) {
 		this.ctg_name = ctg_name;
->>>>>>> origin/yejin
 	}
 
 
@@ -140,14 +120,9 @@ public class HospitalBoardVO {
 
 	@Override
 	public String toString() {
-<<<<<<< HEAD
-		return "HospitalBoardVO [no=" + no + ", title=" + title + ", category=" + ctg_no + ", content=" + content
-				+ ", viewcnt=" + viewcnt + ", wrt_date=" + wrt_date + ", memberid=" + memberid + "]";
-=======
 		return "HospitalBoardVO [no=" + no + ", title=" + title + ", ctg_no=" + ctg_no + ", ctg_name=" + ctg_name
 				+ ", content=" + content + ", viewcnt=" + viewcnt + ", wrt_date=" + wrt_date + ", memberid=" + memberid
 				+ "]";
->>>>>>> origin/yejin
 	}
 
 	

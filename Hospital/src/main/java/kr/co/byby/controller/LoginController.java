@@ -6,16 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.byby.dto.HospitalMemberVO;
-import kr.co.byby.service.HospitalMemberService;
 import kr.co.byby.service.LoginService;
 
 
@@ -25,7 +20,6 @@ public class LoginController {
 	
 	@Autowired
 	private LoginService loginService;
-	
 	
 	// 스프링 4.3 이상 => GetMapping, PostMapping, PutMapping...
 	@GetMapping("/login")
@@ -113,7 +107,4 @@ public class LoginController {
 		return "redirect:/";
 	}
 	*/
-	
-	
-	
 }

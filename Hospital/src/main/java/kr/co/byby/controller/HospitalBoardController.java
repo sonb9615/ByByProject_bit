@@ -101,11 +101,7 @@ public class HospitalBoardController {
 		
 		return mav;
 	}
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> origin/yejin
 	// 병원게시글 삭제
 	@RequestMapping("/board/remove/{no}")
 	public String removeBoard(@PathVariable("no") int no) {

@@ -46,7 +46,7 @@ $(document).ready(function() {
 			var myObj = JSON.parse(result);
 			for (var i = 0; i < myObj.length; i++) {
 				var item = myObj[i];
-				$("#divCtg").append("<li><a href=/category/" + item.ctg_name + " onclick='doAction(${ hospital.ctg_name })'>" + item.ctg_name + "</a></li>");
+				$("#divCtg").append("<li><a href=/category/" + item.ctg_name + " onclick='doAction2(${ hospital.ctg_name })'>" + item.ctg_name + "</a></li>");
 				
 			}
 		},
@@ -56,7 +56,7 @@ $(document).ready(function() {
 	});
 });
 
-function doAction(boardNo) {
+function doAction2(boardNo) {
 /* 	<c:if test="${ empty loginVo}">
 		if(confirm('로그인 후 사용할 수 있습니다\n로그인하시겠습니까?')) 
 			location.href = "${ pageContext.request.contextPath }/login";
@@ -152,7 +152,7 @@ ul {
 <%-- 						<td>${ hospital.no }</td>  --%>
 						<td>${ hospital.ctg_name }</td>
 						<td>
-						<a href="#" onclick="doAction(${ hospital.no })" id="showdetail">
+						<a href="#" onclick="doAction2(${ hospital.no })" id="showdetail">
 						${ hospital.title }
 						</a>
 						</td>
