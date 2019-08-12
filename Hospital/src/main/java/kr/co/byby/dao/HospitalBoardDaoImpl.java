@@ -19,6 +19,12 @@ public class HospitalBoardDaoImpl implements HospitalBoardDAO{
 		List<HospitalBoardVO> hospitalboardList = session.selectList("kr.co.byby.dao.HospitalBoardDAO.selectAll");
 		return hospitalboardList;
 	}
+	
+
+	public List<HospitalBoardVO> selectCtgBoard(String ctg_name) {
+		List<HospitalBoardVO> ctgBoardList = session.selectList("kr.co.byby.dao.HospitalBoardDAO.selectCtgBoard", ctg_name);
+		return ctgBoardList;
+	}
 
 	public void insert(HospitalBoardVO board) {
 		session.insert("kr.co.byby.dao.HospitalBoardDAO.insert",board);
@@ -52,8 +58,5 @@ public class HospitalBoardDaoImpl implements HospitalBoardDAO{
 		return session.selectOne("kr.co.byby.dao.HospitalBoardDAO.listCount");
 	}
 
-	
-	
-	
 	
 }

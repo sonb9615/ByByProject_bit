@@ -21,5 +21,13 @@ public class HospitalMemberDAOImpl implements HospitalMemberDAO{
 		
 	}
 
+	@Override
+	public int checkId(String memberid) {
+		
+		int check = session.selectOne("kr.co.byby.dao.HospitalMemberDAO.checkId", memberid);
+
+		return check;
+	}
+
 
 }

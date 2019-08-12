@@ -35,6 +35,7 @@
          
       })
    })
+  
    
 </script>
 
@@ -300,7 +301,7 @@ form {
 		군 : <input type="text" name="Q1" id="Q1"><br> 
 		동 : <input type="text" name="dong" id="dong"><br>
 		<!-- 진료코드 : <input type="text" name="QD" id="QD"><br> -->
-		<button  id="search" name="QD" class="btn btn-default" aria-label="Left Align">
+		<button id="search" name="QD" class="btn btn-default" aria-label="Left Align">
 		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 		검색</button>
 		<br>

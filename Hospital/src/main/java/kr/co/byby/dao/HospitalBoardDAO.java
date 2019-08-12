@@ -26,4 +26,7 @@ public interface HospitalBoardDAO {
 	
 	//병원게시글 수정
 	public void update(HospitalBoardVO board);
+	
+	//카테고리 게시글 조회
+	public List<HospitalBoardVO> selectCtgBoard(String ctg_name);
 }

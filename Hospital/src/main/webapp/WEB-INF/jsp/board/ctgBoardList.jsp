@@ -47,7 +47,6 @@ $(document).ready(function() {
 			for (var i = 0; i < myObj.length; i++) {
 				var item = myObj[i];
 				$("#divCtg").append("<li><a href=/category/" + item.ctg_name + " onclick='doAction(${ hospital.ctg_name })'>" + item.ctg_name + "</a></li>");
-				
 			}
 		},
 		error:function(request, status, error) {
@@ -69,7 +68,6 @@ function doAction(boardNo) {
 	
 	location.href = "${ pageContext.request.contextPath}/board/" + boardNo;
 }
-
 
 </script>
 <style type="text/css">
@@ -147,7 +145,7 @@ ul {
 					<th>작성일</th>
 					<th>회원ID</th>
 				</tr>
-				<c:forEach items="${ hospitalboardList }" var="hospital">
+				<c:forEach items="${ ctgBoard }" var="hospital">
 					<tr>
 <%-- 						<td>${ hospital.no }</td>  --%>
 						<td>${ hospital.ctg_name }</td>
@@ -156,7 +154,6 @@ ul {
 						${ hospital.title }
 						</a>
 						</td>
-
 						<td>${ hospital.viewcnt }</td>
 						<td>${ hospital.wrt_date }</td>
 						<td>${ hospital.memberid }</td>

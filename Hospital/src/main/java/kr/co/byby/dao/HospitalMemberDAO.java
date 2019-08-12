@@ -11,8 +11,9 @@ public interface HospitalMemberDAO {
 	 */
 	public void insert(HospitalMemberVO member);
 	
-
+	/**
+	 * 회원가입 아이디 중복체크
+	 */
+	int checkId(String memberid);
 	
-
-
 }

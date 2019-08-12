@@ -50,6 +50,12 @@ public class HospitalBoardServiceImpl implements HospitalBoardService{
 		return hospitalboardDAO.listCount();
 	}
 
+	@Override
+	public List<HospitalBoardVO> ctgBoard(String ctgName) {
+		List<HospitalBoardVO> ctgBoardList = hospitalboardDAO.selectCtgBoard(ctgName);
+		return ctgBoardList;
+	}
+
 	
 	
 }

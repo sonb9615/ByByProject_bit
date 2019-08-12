@@ -10,6 +10,13 @@
 		<result column="reg_date" property="regDate" />
 	</resultMap>
 	
+	<!-- 아이디 중복체크 -->
+	<select id="checkId" parameterType="HospitalMemberVO" resultType="int">
+		select count(*)
+		 from Member_tb
+		  where memberid = #{memberid}
+	</select>
+	
 	<!-- 회원정보 삽입 -->
 	<insert id="insertMember" parameterType="HospitalMemberVO">
 		insert into Member_tb(memberid, name, password, email_id, email_domain, tel1, tel2, tel3)

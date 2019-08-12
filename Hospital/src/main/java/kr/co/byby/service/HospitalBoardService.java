@@ -16,8 +16,12 @@ public interface HospitalBoardService {
 	void insertBoard(HospitalBoardVO board);
 	//병원게시판 상세글 조회
 	HospitalBoardVO detailBoardByNo(int no);
+
 	//병원게시판 게시글 삭제
 	void deleteBoardByNo(int no);
 	// 병원게시판 게시글 수정
 	public void update(HospitalBoardVO board);
+	
+	// 카테고리 게시물 조회
+	List<HospitalBoardVO> ctgBoard(String ctgName);
 }

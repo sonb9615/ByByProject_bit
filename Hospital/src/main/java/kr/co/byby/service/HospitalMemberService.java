@@ -8,5 +8,5 @@ public interface HospitalMemberService {
 	
 	void insertMember(HospitalMemberVO member);
 
-
+	int checkIdSignUp(String memberid);
 }

@@ -11,7 +11,7 @@ public class HospitalBoardVO {
 	@NotEmpty(message="필수항목입니다")
 	private String title;
 	private int ctg_no;
-	
+	private String ctg_name;
 	@NotEmpty(message="필수항목입니다")
 	private String content;
 	private int viewcnt;
@@ -24,12 +24,13 @@ public class HospitalBoardVO {
 	}
 
 
-	public HospitalBoardVO(int no, String title, int ctg_no, String content, int viewcnt, String wrt_date,
-			String memberid) {
+	public HospitalBoardVO(int no, String title, int ctg_no, String ctg_name, String content, int viewcnt,
+			String wrt_date, String memberid) {
 		super();
 		this.no = no;
 		this.title = title;
 		this.ctg_no = ctg_no;
+		this.ctg_name = ctg_name;
 		this.content = content;
 		this.viewcnt = viewcnt;
 		this.wrt_date = wrt_date;
@@ -64,6 +65,16 @@ public class HospitalBoardVO {
 
 	public void setCtg_no(int ctg_no) {
 		this.ctg_no = ctg_no;
+	}
+
+
+	public String getCtg_name() {
+		return ctg_name;
+	}
+
+
+	public void setCtg_name(String ctg_name) {
+		this.ctg_name = ctg_name;
 	}
 
 
@@ -109,12 +120,11 @@ public class HospitalBoardVO {
 
 	@Override
 	public String toString() {
-		return "HospitalBoardVO [no=" + no + ", title=" + title + ", category=" + ctg_no + ", content=" + content
-				+ ", viewcnt=" + viewcnt + ", wrt_date=" + wrt_date + ", memberid=" + memberid + "]";
+		return "HospitalBoardVO [no=" + no + ", title=" + title + ", ctg_no=" + ctg_no + ", ctg_name=" + ctg_name
+				+ ", content=" + content + ", viewcnt=" + viewcnt + ", wrt_date=" + wrt_date + ", memberid=" + memberid
+				+ "]";
 	}
-	
-	
-	
+
 	
 }
 

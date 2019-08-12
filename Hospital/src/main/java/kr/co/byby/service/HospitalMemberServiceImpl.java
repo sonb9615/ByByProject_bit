@@ -23,4 +23,11 @@ public class HospitalMemberServiceImpl implements HospitalMemberService{
 		
 	}
 
+	@Override
+	public int checkIdSignUp(String memberid) {
+		
+		int check = memberDAO.checkId(memberid);
+		return check;
+	}
+
 }
