@@ -38,7 +38,7 @@
 
 
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=83b56ef3947c7bd212b06183493dc359&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은 apikey&libraries=services"></script>
 <script>
 
 <%
