@@ -4,37 +4,76 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.byby.dao.HospitalBoardDAO">
 
-	<!-- 특정번호 게시글 수정 -->
-	<update id ="update"  parameterType="HospitalBoardVO">
-		update Board_tb
-			set
-				title = #{title},
-				content = #{content}
-				where no = #{no}
-	</update>
-	
-	<!-- 특정번호 게시글 삭제 -->
-	<delete id="deleteByNo" parameterType="int">
-		delete from Board_tb
-		where no = #{no}
-	</delete>
+	   <!-- 게시글 조회수 증가 -->
+   <update id ="increaseViewcnt">
+      update Board_tb set viewcnt = viewcnt + 1
+      where no = #{no}
+   </update>
 
+   <!-- 특정번호 게시글 수정 -->
+   <update id ="update"  parameterType="HospitalBoardVO">
+      update Board_tb
+         set
+            title = #{title},
+            content = #{content},
+            ctg_no = #{ctg_no}
+            where no = #{no}
+   </update>
+   
+   <!-- 특정번호 게시글 삭제 -->
+   <delete id="deleteByNo" parameterType="int">
+      delete from Board_tb
+      where no = #{no}
+   </delete>
+   
 	<!-- 특정번호 병원게시글 조회 -->
 	<!-- 게시글 번호로 뽑아내서 파라미터타입이 인트임. -->
 	<select id="selectByNo" parameterType="int" resultType="HospitalBoardVO">
-		select no, title, ctg_no, content, viewcnt, to_char(wrt_date, 'yyyy-mm-dd') as wrt_date, memberid
-		from Board_tb		
-		where no = #{no}
+		select B.no, B.title, B.ctg_no, H.ctg_name, F.file_name_key, B.content, B.viewcnt, to_char(wrt_date, 'yyyy-mm-dd') as wrt_date, B.memberid
+		 from Board_tb B
+		  left outer join h_Category H
+		   on B.ctg_no = H.ctg_no 
+		    left outer join Board_file F
+		     on B.no = F.no
+		      where B.no = #{no}
 	</select>
+	
+<!-- 카테고리 게시글 조회 -->
+      <select id="selectCtgBoard"  parameterType="kr.co.byby.dto.HospitalCriteria" resultType="HospitalBoardVO">
+       select no, title, ctg_no, ctg_name, viewcnt, wrt_date, memberid
+       from ( select B.no, B.title, B.ctg_no, H.ctg_name, B.viewcnt, wrt_date, B.memberid,
+       row_number() over(order by no desc)as rNum
+       from board_tb B
+        left outer join h_Category H
+         on B.ctg_no = H.ctg_no
+          where H.ctg_name = #{ctg_name}
+          ) mb
+          where rNum between #{rowStart} and #{rowEnd}
+           order by no desc
+   </select>
+   
+   <!-- 카테고리당 게시글 전체갯수 -->
+   <select id="listCgCount" resultType="int" parameterType="String">
+   <![CDATA[
+      select count(B.no)
+       from Board_tb B
+        left outer join h_Category H
+         on B.ctg_no = H.ctg_no
+          where ctg_name = #{ctg_name}
+   ]]>
+   </select>
+	
 	
 	<!-- 전체게시글조회(페이징) -->
 	<select id="listPage" parameterType="kr.co.byby.dto.HospitalCriteria" resultType="HospitalBoardVO">
-		select no, title, ctg_no, viewcnt, wrt_date, memberid
-    	from ( select no,title, ctg_no, viewcnt, wrt_date, memberid,
+		select no, title, ctg_no, ctg_name, viewcnt, wrt_date, memberid
+    	from ( select B.no, B.title, B.ctg_no, H.ctg_name, B.viewcnt, wrt_date, B.memberid,
     	row_number() over(order by no desc)as rNum
-    	from board_tb) mb 
-    	where rNum between #{rowStart} and #{rowEnd}
-    	order by no desc
+    	from board_tb B
+    	 join h_Category H
+    	  on B.ctg_no = H.ctg_no) mb
+    	   where rNum between #{rowStart} and #{rowEnd}
+    	    order by no desc
 	</select>
 	
 	<select id="listCount" resultType="int">
@@ -45,20 +84,31 @@
 	]]>
 	</select>
 
-
-	<!-- 전체게시글 조회 -->
-	<select id="selectAll" resultType="HospitalBoardVO">
-		select no, title, ctg_no, content, viewcnt, to_char(wrt_date, 'yyyy-mm-dd') as wrt_date, memberid
-		from Board_tb
-		order by no desc
-	</select>
-
-
 	<!-- 게시글 삽입 -->
 	<insert id="insert" parameterType="HospitalBoardVO">
 		insert into Board_tb(no, title, ctg_no, content, memberid)
-		values(board_no.nextval, #{title}, #{ctg_no},#{content},#{memberid})
+		values(board_no.nextval, #{title}, #{ctg_no}, #{content}, #{memberid})
 	</insert>
+	
+	   <!-- 파일업로드  -->
+   <insert id="insertBoardFile" parameterType="BoardFileVO">
+      insert into Board_file(file_no, file_name_key, file_name, file_path, file_size, no) 
+      values(file_no_seq.nextval, #{file_name_key}, #{file_name}, #{file_path}, #{file_size}, board_no.currval)
+   </insert>
+   
+   <!-- 파일업로드 수정 -->
+   <insert id="insertBoardFileUpdate" parameterType="BoardFileVO">
+      insert into Board_file(file_no, file_name_key, file_name, file_path, file_size, no)
+       select file_no_seq.nextval, #{file_name_key}, #{file_name}, #{file_path}, #{file_size}, b.no
+        from Board_tb b
+         left outer join Board_file f
+          on b.no = f.no
+           where B.no = #{no}  
+   </insert>
 
-
+   <!-- 파일 삭제 -->
+   <delete id="deleteBoardFile" parameterType="BoardFileVO">
+      delete Board_file
+        where file_name_key = #{ file_name_key }
+   </delete>
 </mapper>

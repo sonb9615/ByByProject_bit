@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.byby.dto.BoardFileVO;
 import kr.co.byby.dto.HospitalBoardVO;
 import kr.co.byby.dto.HospitalCriteria;
 
@@ -19,6 +20,22 @@ public class HospitalBoardDaoImpl implements HospitalBoardDAO{
 		List<HospitalBoardVO> hospitalboardList = session.selectList("kr.co.byby.dao.HospitalBoardDAO.selectAll");
 		return hospitalboardList;
 	}
+	
+	/* 게시판 첨부파일 등록 */
+	public int insertBoardFile(BoardFileVO boardFile) {
+		return session.insert("kr.co.byby.dao.HospitalBoardDAO.insertBoardFile", boardFile);
+	}
+	
+	@Override
+	   public int listCgCount(String ctg_name) throws Exception {
+	      return session.selectOne("kr.co.byby.dao.HospitalBoardDAO.listCgCount", ctg_name);
+	   }
+
+	public List<HospitalBoardVO> selectCtgBoard( HospitalCriteria cri) {
+	      List<HospitalBoardVO> ctgBoardList = session.selectList("kr.co.byby.dao.HospitalBoardDAO.selectCtgBoard", cri);
+	      return ctgBoardList;
+	   }
+
 
 	public void insert(HospitalBoardVO board) {
 		session.insert("kr.co.byby.dao.HospitalBoardDAO.insert",board);
@@ -53,7 +70,19 @@ public class HospitalBoardDaoImpl implements HospitalBoardDAO{
 	}
 
 	
-	
-	
-	
+	 @Override
+	   public void increaseViewcnt(int no) {
+	       session.update("kr.co.byby.dao.HospitalBoardDAO.increaseViewcnt", no);
+	      
+	   }
+	 
+	 /* 첨부파일 삭제 */
+	   public int deleteBoardFile(BoardFileVO boardFile) {
+	      return session.update("kr.co.byby.dao.HospitalBoardDAO.deleteBoardFile", boardFile);
+	   }
+	   
+	 //게시판 파일 수정 
+	   public int insertBoardFileUpdate(BoardFileVO boardFile) {
+	      return session.insert("kr.co.byby.dao.HospitalBoardDAO.insertBoardFileUpdate", boardFile);
+	   }
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.byby.dto.HospitalBoardVO;
 import kr.co.byby.dto.HospitalCriteria;
 import kr.co.byby.dto.HospitalPageMaker;
+import kr.co.byby.dto.ReplyHospitalVO;
 import kr.co.byby.service.HospitalBoardService;
 
 @Controller
@@ -25,31 +27,19 @@ public class HospitalBoardController {
 	@Autowired
 	private HospitalBoardService service;
 
-	
-	  //전체병원리스트조회
-	  
-	/*
-	 * @RequestMapping("/hospitalboard") public ModelAndView list() {
-	 * List<HospitalBoardVO> hospitalboardList = service.selectAllBoard();
-	 * 
-	 * ModelAndView mav = new ModelAndView("board/hospitallist");
-	 * 
-	 * mav.addObject("hospitalboardList", hospitalboardList);
-	 * 
-	 * return mav; }
-	 */
 
 	// 병원게시판 게시물 전체조회_페이지
 	@RequestMapping(value = "/hospitalboard", method = RequestMethod.GET)
 	public ModelAndView list(@ModelAttribute("cri") HospitalCriteria cri, ModelAndView mav) throws Exception {
 		List<HospitalBoardVO> hospitalboardList = service.listPage(cri);
 		mav = new ModelAndView("board/hospitallist");
-
+		
 		HospitalPageMaker pageMaker = new HospitalPageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.listCount());
 		mav.addObject("hospitalboardList", hospitalboardList);
-		mav.addObject("pageMaker", pageMaker);
+		mav.addObject("pageMaker", pageMaker);	
+		
 		return mav;
 	}
 
@@ -68,27 +58,21 @@ public class HospitalBoardController {
 	}
 
 	// 상세 병원게시글 조회
-	@RequestMapping(value = "/board/hospitaldetail")
-	public ModelAndView detail2(@RequestParam("no") int no) {
-
-		HospitalBoardVO hospital = service.detailBoardByNo(no);
-
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("board/hospitaldetail");
-		mav.addObject("hospital", hospital);
-		return mav;
-	}
-
-	@RequestMapping(value = "/board/{no}", method = RequestMethod.GET)
+	@RequestMapping(value = "/board/{no}", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView detail(@PathVariable("no") int no) {
+		service.increaseViewcnt(no);
+
 		HospitalBoardVO hospital = service.detailBoardByNo(no);
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/hospitaldetail");
 		mav.addObject("hospital", hospital);
+		  mav.addObject("replyVO", new ReplyHospitalVO());
+
 		return mav;
 	}
 
+	
 	// 병원게시글 삭제
 	@RequestMapping("/board/remove/{no}")
 	public String removeBoard(@PathVariable("no") int no) {
@@ -112,5 +96,19 @@ public class HospitalBoardController {
 		service.update(hospital);
 		return "redirect:/hospitalboard";
 	}
-
+	
+	// 병원게시판 카테고리 글목록 불러오기
+    @RequestMapping(method = RequestMethod.GET, value = "/category/{ctg_name}")
+    public ModelAndView getCtgBoard(@ModelAttribute("cri")  HospitalCriteria cri, @PathVariable("ctg_name") String ctg_name) throws Exception{
+       List<HospitalBoardVO> ctgBoardList = service.ctgBoard(cri);
+       ModelAndView mav = new ModelAndView("board/ctgBoardList");
+       
+       HospitalPageMaker pageMaker = new HospitalPageMaker();
+       pageMaker.setCri(cri);
+       pageMaker.setTotalCount(service.listCgCount(ctg_name));
+       mav.addObject("ctgBoard", ctgBoardList);
+       mav.addObject("pageMaker", pageMaker);
+       
+       return mav;
+    }
 }

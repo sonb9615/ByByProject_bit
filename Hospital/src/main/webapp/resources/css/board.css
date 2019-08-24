@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-table, th, td {
-	border: 1px solid #f8e2e4;
+table, th, td {	
+	/* border: 1px solid #f8e2e4; */
 	border-collapse: collapse;
-	font-family: sans-serif;
-	color: #555;
+	/* font-family:  'Noto Sans KR',sans-serif; */
+	/* color: #555; */
 	align-content: center;
 }
 
@@ -19,8 +19,8 @@ th, td {
 }
 
 table th {
-	background-color: #f3cfd2;
-	color: #000000;
+	/* background-color: #f3cfd2; */
+	/* color: #000000; */
 }
 
 /* 홀수 태그들에만 설정 */

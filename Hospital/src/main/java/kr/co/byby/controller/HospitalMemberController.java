@@ -2,16 +2,18 @@ package kr.co.byby.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.byby.dto.HospitalMemberVO;
@@ -23,6 +25,15 @@ public class HospitalMemberController {
 	
 	@Autowired
 	private HospitalMemberService service;
+	
+	@ResponseBody
+	@RequestMapping(value="/checkSignUp", method=RequestMethod.POST)
+	public String checkSignUp(HttpServletRequest request, Model model) {
+		String id = request.getParameter("memberid");
+		int rowcount = service.checkIdSignUp(id);
+		return String.valueOf(rowcount);
+	}
+	
 	
 	
 	@RequestMapping(value="/member/join", method=RequestMethod.GET)
@@ -36,7 +47,7 @@ public class HospitalMemberController {
 	}
 	
 	@RequestMapping(value="/member/join", method=RequestMethod.POST)
-	public String join(@Valid HospitalMemberVO member, BindingResult result) {
+	public String join(@ModelAttribute("memberVO") @Valid HospitalMemberVO member, BindingResult result) {
 		
 		System.out.println(member);
 		
@@ -51,5 +62,30 @@ public class HospitalMemberController {
 		return "redirect:/";
 	}
 	
-	
+	@RequestMapping(value = "/mypage/{loginVO.memberid}", method = RequestMethod.GET)
+	   public ModelAndView detailMember(@PathVariable("loginVO.memberid") String memberid) {
+	      HospitalMemberVO member = service.detailBoardById(memberid);
+	      System.out.println(memberid);
+
+	      ModelAndView mav = new ModelAndView();
+	      mav.setViewName("mypage/mypage");
+	      mav.addObject("member", member);
+	      return mav;
+	   }
+	   
+	   @RequestMapping(value = "/mypage/update/{loginVO.memberid}", method = RequestMethod.GET)
+	   public ModelAndView updateMember(@PathVariable("loginVO.memberid") String memberid) {
+	      HospitalMemberVO member = service.detailBoardById(memberid);
+	      System.out.println(memberid);
+	      ModelAndView mav = new ModelAndView();
+	      mav.setViewName("mypage/mypageupdate");
+	      mav.addObject("member",member);
+	      return mav;
+	   }
+	   
+	   @RequestMapping(value = "/mypage/update", method = { RequestMethod.POST, RequestMethod.GET })
+	   public String updateMemberPost(HospitalMemberVO member) {
+	      service.updateMember(member);
+	      return "redirect:/";
+	   }
 }

@@ -1,0 +1,29 @@
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+.login-blockj{
+	border:1px solid;
+	margin-top:10px;
+	border-radius:10%;
+   
+/*background: -webkit-linear-gradient(to bottom, #c6c6c6,#eaeaea);   Chrome 10-25, Safari 5.1-6 
+background: linear-gradient(to bottom, #c6c6c6,#eaeaea); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+float:left;
+width:30%;
+text-align:center;
+padding : 50px 0;
+margin-left:420px;
+}
+.banner-secj{background:url(https://static.pexels.com/photos/33972/pexels-photo.jpg)  no-repeat left bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
+.containerj{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}
+.carousel-innerj{border-radius:0 10px 10px 0;}
+.carousel-captionj{text-align:left; left:5%;}
+.login-secj{padding: 0px 30px; position:relative;}
+.login-secj .copy-textj{position:absolute; width:30%; bottom:20px; font-size:13px; text-align:center;}
+.login-secj .copy-textj i{color:#FEB58A;}
+.login-secj .copy-textj a{color:#E36262;}
+.login-secj h2{margin-bottom:10px; font-weight:80; font-size:30px; color: #f09b1b;}
+.login-secj h2:after{content:" "; width:200px; height:5px; background:#b9edf8; display:block; margin-top:10px; border-radius:3px; margin-left:auto;margin-right:auto}
+.btn-loginj{background: #DE6262; color:#fff; font-weight:200;}
+.banner-textj{width:70%; position:absolute; bottom:40px; padding-left:20px;}
+.banner-textj h2{color:#fff; font-weight:600;}
+.banner-textj h2:after{content:" "; width:100px; height:5px; background:#FFF; display:block; margin-top:20px; border-radius:3px;}
+.banner-textj p{color:#fff;}

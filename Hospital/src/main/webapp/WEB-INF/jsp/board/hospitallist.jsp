@@ -28,6 +28,7 @@
 
 <!-- Custom styles for this template -->
 <link href="/resources/css/carousel.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Noto+Sans+KR&display=swap" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 $(document).ready(function name() {
@@ -36,19 +37,37 @@ $(document).ready(function name() {
 	});
 });
 
-function doAction(boardNo) {
-/* 	<c:if test="${ empty loginVo}">
-		if(confirm('로그인 후 사용할 수 있습니다\n로그인하시겠습니까?')) 
-			location.href = "${ pageContext.request.contextPath }/login";
-			
-	</c:if> */
-	
-/* 	<c:if test="${ not empty loginVo}">
-		
-	</c:if> */
-	
-	location.href = "${ pageContext.request.contextPath}/board/" + boardNo;
-}
+// 카테고리
+$(document).ready(function() {
+	$.ajax({
+		type: 'GET',
+		url: "/categoryData",
+		success: function(result) {
+			console.log(result);
+			var myObj = JSON.parse(result);
+			for (var i = 0; i < myObj.length; i++) {
+				var item = myObj[i];
+				$("#divCtg").append("<li id='ctg'><a href=/category/" + item.ctg_name + ">" + item.ctg_name + "</a></li>");				
+			}
+		},
+		error:function(request, status, error) {
+			alert("ERROR: " + request + " " + status + " " + error);
+		}
+	});
+});
+
+function doAction2(boardNo) {
+	   <c:if test="${ empty loginVO}">
+	      if(confirm('로그인 후 사용할 수 있습니다\n로그인하시겠습니까?')) 
+	         location.href = "${ pageContext.request.contextPath }/login";
+	         
+	   </c:if>
+	   
+	    <c:if test="${ not empty loginVO}">
+	    location.href = "${ pageContext.request.contextPath}/board/" + boardNo;
+	   </c:if>
+	}
+
 
 </script>
 <style type="text/css">
@@ -88,6 +107,70 @@ ul {
     padding-inline-start: 40px;
 }
 
+.board-tab li:before {
+    content: "";
+    display: block;
+    clear: both;
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background-color: #cdcdcd;
+    top: 26px;
+    left: 0;
+}
+
+body{
+	font-family: 'Noto Sans KR',sans-serif;
+}
+table, th, td {
+	/* border: 1px solid #f8e2e4; */
+	border-collapse: collapse;
+	/* font-family:  'Noto Sans KR',sans-serif; */
+	/* color: #555; */
+	align-content: center;
+}
+
+table {
+	width: 100%;
+	align-content: center;
+}
+
+th, td {
+	padding: 5px;
+	align-content: center;
+	
+}
+
+table th {
+	background-color: rgba(229,203,149,0.5);
+	text-align: center;
+	color: #000000;
+	
+}
+
+div#hplist {
+	width : 90.2%;
+ 	margin: 0 auto; 
+	margin-left : 6.3%;
+}
+
+td.locactn{
+	text-align: center;
+}
+
+div#pageNum{
+	margin-top: 3%;
+	padding-left: 6%;
+}
+
+li#ctg{
+	width: 14%;
+}
+li#total{
+	/* padding-left: 4%; */
+	width: 14%;
+	
+}
 </style>
 </head>
 <body>
@@ -95,82 +178,63 @@ ul {
 		<jsp:include page="/WEB-INF/jsp/include/bytopMenu.jsp" />
 	</header>
 	<section>
-		<div align="center">
-			<br> 
-			<hr>
+		<div align="center" id="hplist">
+			<br>
+			<!-- <hr> -->
 			<h2>병원게시판</h2>
 			<hr>
-			
-			   <div class="board-tab-outer">
-            <ul class="board-tab  w6-2 tabCategory">
-               <li class="on"><a href="#" data="" title='전체 선택됨'>전체</a></li>
 
-               <li class=""><a href="#" data="19">내과</a></li>
-
-               <li class=""><a href="#" data="20">소아청소년과</a></li>
-
-               <li class=""><a href="#" data="21">사회봉사</a></li>
-
-               <li class=""><a href="#" data="22">장학</a></li>
-
-               <li class=""><a href="#" data="189">학생생활</a></li>
-
-               <li class=""><a href="#" data="23">채용</a></li>
-
-               <li class=""><a href="#" data="190">글로벌</a></li>
-
-               <li class=""><a href="#" data="28">스마트출결</a></li>
-
-               <li class=""><a href="#" data="162">진로취업</a></li>
-
-               <li class="final"><a href="#" data="25">외부기관</a></li>
-            </ul>
-         </div>
-			
-			<br>
-			<table id="list">
+			<div class='board-tab-outer'>
+				<ul class='board-tab  w6-2 tabCategory'>
+					<div id="divCtg"></div>
+					<li id="total"><a href="${pageContext.request.contextPath}/hospitalboard"
+						id="end">전체</a></li>
+				</ul>
+			</div>
+		
+			<table id="list" class="table">
 				<tr>
-					<th>게시글번호</th>
-					<th>제목</th>
-					<th>카테고리</th>
-					<th>조회수</th>
-					<th>작성일</th>
-					<th>회원ID</th>
+					<th width="10%">카테고리</th>
+					<th width="30%">제목</th>
+					<th width="7%">회원ID</th>
+
+					<th width="10%">작성일</th>
+					<th width="7%">조회수</th>
 				</tr>
 				<c:forEach items="${ hospitalboardList }" var="hospital">
 					<tr>
-						<td>${ hospital.no }</td> 
-						<td>
-						<a href="#" onclick="doAction(${ hospital.no })" id="showdetail">
-						${ hospital.title }
-						</a>
-						</td>
-						<td>${ hospital.ctg_no }</td>
-						<td>${ hospital.viewcnt }</td>
-						<td>${ hospital.wrt_date }</td>
-						<td>${ hospital.memberid }</td>
+						<td>${ hospital.ctg_name}</td>
+						<td><a href="#" onclick="doAction2(${ hospital.no })"
+							id="showdetail"> <c:out value="${ hospital.title }" />
+						</a></td>
+						<td class="locactn">${ hospital.memberid }</td>
+
+						<td class="locactn">${ hospital.wrt_date }</td>
+						<td class="locactn">${ hospital.viewcnt }</td>
 					</tr>
 				</c:forEach>
 			</table>
 			<br>
-			<button id="writeBtn" >새글등록</button>
+			<c:if test="${ not empty loginVO}">
+				<button class="btn btn-default" id="writeBtn">새글등록</button>
+			</c:if>
 		</div>
-		<div>
-			<ul class="btn-group pagination">
+		<div id="pageNum">
+			<ul class="btn-group pagination" >
 				<c:if test="${pageMaker.prev }">
-					<li>
-						<a href="hospitalboard?${pageMaker.makeQuery(pageMaker.startPage - 1) }"><i class="fa fa-chevron-left"></i>이전</a>
-					</li>
+					<li><a
+						href="hospitalboard?${pageMaker.makeQuery(pageMaker.startPage - 1) }"><i
+							class="fa fa-chevron-left"></i>이전</a></li>
 				</c:if>
-				<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-					<li>
-						<a href="hospitalboard${pageMaker.makeQuery(idx) }"><i class="fa">${idx }</i></a>
-					</li>
+				<c:forEach begin="${pageMaker.startPage }"
+					end="${pageMaker.endPage }" var="idx">
+					<li><a href="hospitalboard${pageMaker.makeQuery(idx) }"><i
+							class="fa">${idx }</i></a></li>
 				</c:forEach>
 				<c:if test="${pageMaker.next && pageMaker.endPage>0 }">
-					<li>
-						<a href="hospitalboard${pageMaker.makeQuery(pageMaker.endPage+1) }"><i class="fa fa-chevron-right"></i>다음</a>
-					</li>
+					<li><a
+						href="hospitalboard${pageMaker.makeQuery(pageMaker.endPage+1) }"><i
+							class="fa fa-chevron-right"></i>다음</a></li>
 				</c:if>
 			</ul>
 		</div>
