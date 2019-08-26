@@ -1,0 +1,478 @@
+@charset "UTF-8";
+
+html,body{
+   height:100%;
+}
+
+#container{
+   min-height:100%;
+}
+
+.QD {
+   padding: 10%;
+}
+
+.qdname {
+   padding-top: 40px;
+   padding-bottom: 40px;
+   padding-right: 40px;
+   padding-left: 40px;
+   text-align: center;
+}
+
+#log {
+   font-size: 20px;
+}
+
+#parent {
+   position: absolute;
+   top: 210px;
+}
+
+#D001 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 23%;
+   left: 17%;
+}
+
+#D002 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 23%;
+   left: 27%;
+}
+
+#D003 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 23%;
+   left: 37%;
+}
+
+#D004 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 23%;
+   left: 47%;
+}
+
+#D005 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 23%;
+   left: 57%;
+}
+
+#D006 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 23%;
+   left: 67%;
+}
+
+#D007 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 23%;
+   left: 77%;
+}
+
+#D008 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 37%;
+   left: 17%;
+}
+
+#D009 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 37%;
+   left: 27%;
+}
+
+#D010 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 37%;
+   left: 37%;
+}
+
+#D011 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 37%;
+   left: 47%;
+}
+
+#D012 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 37%;
+   left: 57%;
+}
+
+#D013 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 37%;
+   left: 67%;
+}
+
+#D014 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 37%;
+   left: 77%;
+}
+
+#D016 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 51%;
+   left: 17%;
+}
+
+#D017 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 51%;
+   left: 27%;
+}
+
+#D018 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 51%;
+   left: 37%;
+}
+
+#D019 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 51%;
+   left: 47%;
+}
+
+#D020 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 51%;
+   left: 57%;
+}
+
+#D022 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 51%;
+   left: 67%;
+}
+
+#D023 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 51%;
+   left: 77%;
+}
+
+#D024 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 65%;
+   left: 17%;
+}
+
+#D026 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 65%;
+   left: 27%;
+}
+
+#D034 {
+   width: 5%;
+   height: auto;
+   border: 1px solid #5A5A5A;
+   position: absolute;
+   top: 65%;
+   left: 37%;
+   display: block;
+}
+
+
+
+#D0011 {
+
+   position: absolute;
+   top: 33.5%;
+   left: 18.2%;
+   display:inline-block;
+}
+
+#D0021 {
+
+   position: absolute;
+   top: 33.5%;
+   left: 26.3%;
+   
+   display:inline-block;
+}
+
+#D0031 {
+
+   position: absolute;
+   top: 33.5%;
+   left: 37.8%;
+   display:inline-block;
+}
+
+#D0041 {
+
+   position: absolute;
+   top: 33.5%;
+   left: 46%;
+   display:inline-block;
+}
+
+#D0051 {
+ 
+   position: absolute;
+   top: 33.5%;
+   left: 57.8%;
+   display:inline-block;
+}
+
+#D0061 {
+
+   position: absolute;
+   top: 33.5%;
+   left: 68.4%;
+   display:inline-block;
+}
+
+#D0071 {
+  
+   position: absolute;
+   top: 33.5%;
+   left: 77.4%;
+   display:inline-block;
+}
+
+#D0081 {
+ 
+   position: absolute;
+   top: 47.5%;
+   left: 17.2%;
+   display:inline-block;
+}
+
+#D0091 {
+
+   position: absolute;
+   top: 47.5%;
+   left: 27.2%;
+   display:inline-block;
+}
+
+#D0101 {
+
+   position: absolute;
+   top: 47.5%;
+   left: 37.3%;
+   display:inline-block;
+}
+
+#D0111 {
+
+   position: absolute;
+   top: 47.5%;
+   left: 47.2%;
+   display:inline-block;
+}
+
+#D0121 {
+
+   position: absolute;
+   top: 47.5%;
+   left: 58.3%;
+   display:inline-block;
+}
+
+#D0131 {
+
+
+   position: absolute;
+   top: 47.5%;
+   left: 66.7%;
+   display:inline-block;
+}
+
+#D0141 {
+
+   position: absolute;
+   top: 47.5%;
+   left: 77.3%;
+   display:inline-block;
+}
+
+#D0161 {
+
+   position: absolute;
+   top: 61.5%;
+   left: 16.9%;
+   display:inline-block;
+}
+
+#D0171 {
+
+   position: absolute;
+   top: 61.5%;
+   left: 26%;
+   display:inline-block;
+}
+
+#D0181 {
+
+   position: absolute;
+   top: 61.5%;
+   left: 36.9%;
+   
+   display:inline-block;
+}
+
+#D0191 {
+ 
+   position: absolute;
+   top: 61.5%;
+   left: 46%;
+   display:inline-block;
+}
+
+#D0201 {
+
+   position: absolute;
+   top: 61.5%;
+   left: 56.7%;
+   display:inline-block;
+}
+
+#D0221 {
+
+   position: absolute;
+   top: 61.5%;
+   left: 66.8%;
+   display:inline-block;
+}
+
+#D0231 {
+
+   position: absolute;
+   top: 61.5%;
+   left: 76.8%;
+   display:inline-block;
+}
+
+#D0241 {
+ 
+   position: absolute;
+   top: 75.5%;
+   left: 17%;
+   display:inline-block;
+}
+
+#D0261 {
+  
+   position: absolute;
+   top: 75.5%;
+   left: 28.4%;
+   display:inline-block;
+}
+
+#D0341 {
+  
+   position: absolute;
+   top: 75.5%;
+   left: 36%;
+ 
+   display:inline-block;
+}
+
+
+form {
+   position: absolute;
+   top: 13%;
+   left:35%;
+}
+
+#f_col{
+   position: absolute;
+   top:33.7%;
+   left:14.7%;
+}
+
+#f_col1{
+   position: absolute;
+   top:47.7%;
+     left:14.7%;
+}
+
+
+#f_col2{
+   position: absolute;
+   top:61.7%;
+     left:14.7%;
+}
+
+
+#f_col3{
+   position: absolute;
+   top:75.7%;
+     left:14.7%;
+}
