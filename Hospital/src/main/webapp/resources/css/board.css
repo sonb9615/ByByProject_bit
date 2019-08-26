@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+table, th, td {	
+	/* border: 1px solid #f8e2e4; */
+	border-collapse: collapse;
+	/* font-family:  'Noto Sans KR',sans-serif; */
+	/* color: #555; */
+	align-content: center;
+}
+
+table {
+	width: 100%;
+	align-content: center;
+}
+
+th, td {
+	padding: 5px;
+	align-content: center;
+}
+
+table th {
+	/* background-color: #f3cfd2; */
+	/* color: #000000; */
+}
+
+/* 홀수 태그들에만 설정 */
+table.list tr:nth-child(odd) {
+	background-color: #F7F9FC;
+}
